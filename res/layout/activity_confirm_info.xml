@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_title"
+            layout="@layout/widget_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dip" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <!-- 概要信息 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_device_info_row"
+                android:background="@drawable/line"
+                android:orientation="horizontal"
+                android:weightSum="12" >
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12" >
+
+                    <TextView
+                        style="@style/style_tv_device_info"
+                        android:layout_alignParentLeft="true"
+                        android:text="审核信息"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <!-- 小区名称 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_device_info_row"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:weightSum="12" >
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="left" >
+
+                    <TextView
+                        style="@style/style_tv_device_info"
+                        android:text="@string/str_device_info_xqmc" />
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_xqmc"
+                        style="@style/style_tv_device_info_right"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <!-- 设备号 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_device_info_row"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:weightSum="12" >
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="left" >
+
+                    <TextView
+                        style="@style/style_tv_device_info"
+                        android:text="@string/str_device_info_sbh" />
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_sbh"
+                        style="@style/style_tv_device_info_right"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+            
+            
+            <!-- 故障/描述 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_device_info_row"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:weightSum="12" >
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="left" >
+
+                    <TextView
+                        style="@style/style_tv_device_info"
+                        android:text="工单描述" />
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_gdms"
+                        style="@style/style_tv_device_info_right"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <!-- 组号,台号 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_device_info_row"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:weightSum="12" >
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="left" >
+
+                    <TextView
+                        style="@style/style_tv_device_info"
+                        android:text="当前执行状态" />
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_fromstatus"
+                        style="@style/style_tv_device_info_right"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_device_info_row"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:weightSum="12" >
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="left" >
+
+                    <TextView
+                        style="@style/style_tv_device_info"
+                        android:text="目的执行状态" />
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_targetstatus"
+                        style="@style/style_tv_device_info_right"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_device_info_row"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:weightSum="12" >
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="left" >
+
+                    <TextView
+                        style="@style/style_tv_device_info"
+                        android:text="发起人" />
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_req_user"
+                        style="@style/style_tv_device_info_right"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_device_info_row"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:weightSum="12" >
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="left" >
+
+                    <TextView
+                        style="@style/style_tv_device_info"
+                        android:text="发起时间" />
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_req_time"
+                        style="@style/style_tv_device_info_right"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+            
+            
+             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_device_info_row"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:weightSum="12" >
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="left" >
+
+                    <TextView
+                        style="@style/style_tv_device_info"
+                        android:text="描述" />
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_req_remark"
+                        style="@style/style_tv_device_info_right"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:weightSum="12" >
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:gravity="center"
+                    android:padding="10dip" >
+
+                    <Button
+                        android:id="@+id/btn_agree"
+                        android:layout_width="100dip"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/frame_app"
+                        android:padding="5dip"
+                        android:text="同意"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/font_size_common" />
+
+                    <Button
+                        android:id="@+id/btn_reject"
+                        android:layout_width="100dip "
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:background="@drawable/frame_app"
+                        android:padding="5dip"
+                        android:text="否决"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/font_size_common" />
+                </LinearLayout>
+                
+                
+
+                <LinearLayout
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/loading"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        layout="@layout/widget_loading"
+        android:visibility="gone" />
+
+</RelativeLayout>

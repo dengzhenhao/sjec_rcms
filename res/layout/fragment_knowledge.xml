@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_title"
+            android:background="@color/color_system"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/title_knowledge"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_title" />
+
+            <ImageButton
+                android:id="@+id/btn_knowledge"
+                android:layout_width="@dimen/height_title"
+                android:layout_height="@dimen/height_title"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/selector_common_layout_trans"
+                android:padding="12dip"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icon_classify" />
+        </RelativeLayout>
+    </LinearLayout>
+
+ <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="10"
+                android:background="@drawable/frame_common"
+                android:gravity="center_vertical|left"
+                android:orientation="horizontal"
+                android:padding="0dip" >
+
+                
+
+                <ImageView
+                    android:layout_width="15dip"
+                    android:layout_height="15dip"
+                    android:layout_marginLeft="5dip"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/search_04" />
+
+                <EditText
+                    android:id="@+id/et_search_keyword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dip"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="10"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/str_hint_search_keyword"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:singleLine="true"
+                    android:textSize="@dimen/font_size_common" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="60dip"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/frame_app"
+                android:padding="0dip"
+                android:text="@string/str_search"
+                android:textColor="#fff"
+                android:textSize="@dimen/font_size_common" />
+        </LinearLayout>
+
+        <com.handmark.pulltorefresh.library.PullToRefreshWebView
+            android:id="@+id/pr_wv_knowledge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </com.handmark.pulltorefresh.library.PullToRefreshWebView>
+    <!--
+         <include
+        android:id="@+id/loading"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        layout="@layout/widget_loading"
+        android:visibility="gone" />
+    -->
+
+</LinearLayout>

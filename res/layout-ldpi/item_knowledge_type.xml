@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_bg"
+    android:layout_width="100dip"
+    android:layout_height="60dip"
+    android:minHeight="60dip"
+    android:orientation="vertical" 
+    android:background="@drawable/selector_layout_knowledge_type"	>
+
+    <TextView
+        android:id="@+id/tv_knowledge_type"
+        android:layout_width="match_parent"
+        android:layout_height="59dip"
+        android:text="类别"
+        android:padding="10dip"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#cecece" >
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+
+    <string name="app_name">江南嘉捷远程监控</string>
+    <string name="str_versionName">版本:2.0.7</string>
+    <string name="phonenum_400">4008282688</string>
+    <!-- 设置 -->
+    <string name="common_config_lbs">请打开定位设置定位模式为 "准确度高"</string>
+    <string name="common_loading">正在进行操作...</string>
+    <string name="common_login_failed">登录失败,请检查用户或密码</string>
+    <string name="common_exit_repeat_press">再按一次退出应用程序</string>
+    <!-- 顶部控件 -->
+    <string name="title_label">电梯维保</string>
+    <!-- 登录&注册 -->
+    <string name="title_label_login">登录</string>
+    <string name="title_label_regist">注册</string>
+    <string name="title_label_loginname">工号/手机号</string>
+    <string name="title_label_password">密码</string>
+    <string name="title_label_password_confirm">确认密码</string>
+    <string name="title_label_verify_code">验证码</string>
+    <string name="msg_error_value_telephone">请正确输入手机号码</string>
+    <string name="msg_error_value_verify_code">请输入短信验证码</string>
+    <string name="msg_error_password">请输入密码</string>
+    <string name="msg_error_password_confirm">请输入确认密码</string>
+    <string name="msg_error_password_repeat">两次密码输入不一致,请重新输入!</string>
+    <string name="msg_error_regist_success">注册成功,现在返回登录界面!</string>
+    <!-- 底部控件 -->
+    <string name="main_xxcj">信息采集</string>
+    <string name="main_sbwx">设备维保</string>
+    <string name="main_zsk">知识库</string>
+    <string name="main_cancel">注销</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <!-- 知识库 -->
+    <string name="title_knowledge">知识库</string>
+    <string name="title_qr_scan">设备号二维码扫描</string>
+    <!-- 信息采集 -->
+    <string name="str_smsbh">扫二维码</string>
+    <string name="str_qr_remind"> 请将手机摄像头对准二维码进行扫描</string>
+    <!-- 设备信息 -->
+    <string name="str_device_location">电梯位置</string>
+    <string name="str_device_location_value">纬度%1$s,经度%2$s</string>
+    <string name="str_device_info_gyxx">概要信息</string>
+    <string name="str_device_info_xqmc">小区名称</string>
+    <string name="str_device_info_xqdz">小区地址</string>
+    <string name="str_device_info_sbh">设备号</string>
+    <string name="str_device_info_zh">组号</string>
+    <string name="str_device_info_th">台号</string>
+    <string name="str_device_info_jbxx">基本信息</string>
+    <string name="str_device_info_xmmc">项目名称</string>
+    <string name="str_device_info_hth">合同号</string>
+    <string name="str_device_info_txtz">梯形梯种</string>
+    <string name="str_device_info_dtxh">电梯型号</string>
+    <string name="str_device_info_jhrq">交货日期</string>
+    <string name="str_device_info_zzcs">制造厂商</string>
+    <string name="str_device_info_wbgs">维保公司</string>
+    <string name="str_device_info_wbsqh">维保授权号</string>
+    <string name="str_device_info_wbxx">维保信息</string>
+    <string name="str_device_info_cpgg">产品规格</string>
+    <string name="str_device_info_sydw">使用单位</string>
+    <string name="str_device_info_sbdz">设备地址</string>
+    <!-- 设备维保 -->
+    <string name="error_qr_scan">二维码扫描出现错误</string>
+    <string name="str_order_end_time">完成%1$s</string>
+    <string name="str_show_manual_submit_workorder">扫描的设备号%1$s与当前工单对应的设备号%2$s不匹配,可选择手工提交工单</string>
+    <string name="str_company_num">厂商编号</string>
+    <string name="str_order_type">工单类型</string>
+    <string name="str_order_type_repair">抢修</string>
+    <string name="str_order_type_maintain">维保</string>
+    <string name="str_order_type_check">检查</string>
+    <string name="str_order_control_type">操作类型</string>
+    <string name="str_order_control_type_baoyang">保养</string>
+    <string name="str_order_control_type_guanren">关人</string>
+    <string name="str_order_control_type_jixiu">急修</string>
+    <string name="str_order_control_type_peijiangenghuan">配件更换</string>
+    <string name="str_list_village_default">所有小区</string>
+    <string name="str_list_factory_code_default">选择厂商编号</string>
+    <string name="str_manual_maintain">手工单</string>
+    <string name="str_hint_search_keyword">输入关键字</string>
+    <string name="str_search">搜索</string>
+    <string name="str_item_device_name">%1$s%2$s组%3$s台</string>
+    <string name="str_item_device_num">设备号    %1$s</string>
+    <string name="str_maintain_desc">工单描述</string>
+    <string name="str_maintain_desc_template_repair">故障代码%1$s%2$s</string>
+    <string name="str_maintain_desc_template_maintain">预定维保日期[%1$s]</string>
+    <string name="str_maintain_status">工单状态</string>
+    <string name="str_maintain_add">生成工单</string>
+    <string name="str_maintain_hint_device_num">请填写设备号</string>
+    <string name="str_maintain_hint_company_num">请填写厂商编号</string>
+    <string name="str_maintain_clicktobegin_maintain">点击生成手工维保单</string>
+    <string name="str_maintain_clicktobegin_repair">点击生成手工抢修单</string>
+    <string name="str_maintain_qr">扫描二维码获取设备信息</string>
+    <string name="str_maintain_qr_failed">获取二维码信息失败!</string>
+    <string name="str_maintain_qr_success">获取二维码信息成功!</string>
+    <string name="str_qr_invalid">二维码格式不正确!</string>
+    <string name="title_maintain">设备维保</string>
+    <string name="str_label_type_maintain">维保操作</string>
+    <string name="str_maintain_begin">开始维保</string>
+    <string name="str_maintain_pause">申请暂停/继续/作废/备件</string>
+    <string name="str_maintain_clicktoreceive">点击受理本工单</string>
+    <string name="str_maintain_clicktobegin">点击开始本梯的维保工作</string>
+    <string name="str_maintain_complete">完成维保,反馈结果</string>
+    <string name="str_maintain_result">维保结果</string>
+    <string name="str_maintain_hit_remark">请填写维保结果与反馈</string>
+    <string name="str_maintain_clicktocomplete">提交维保反馈\n(手动提交)</string>
+    <string name="str_maintain_clicktocomplete_qr">提交维保反馈\n(扫描二维码)</string>
+    <string name="str_maintain_lab_provision_time ">定时保养:%1$s</string>
+    <string name="str_maintain_last_maintain_season"> (季度)保养%1$s已过%2$s天</string>
+   <string name="str_maintain_last_maintain_half_year">   (半年度)保养%1$s已过%2$s天</string>
+  
+    <!-- 抢修 -->
+    <string name="title_repair">设备抢修</string>
+    <string name="str_label_type_repair"> 抢修操作</string>
+    <string name="str_repair_begin">开始抢修</string>
+    <string name="str_repair_clicktobegin">点击开始本梯的抢修工作</string>
+    <string name="str_repair_complete">完成抢修,反馈结果</string>
+    <string name="str_repair_result">抢修结果</string>
+    <string name="str_repair_hit_remark">请填写抢修结果与反馈</string>
+    <string name="str_repair_clicktocomplete">提交抢修反馈\n(此次抢修完成)</string>
+    <string name="str_repair_clicktocomplete_qr">提交抢修反馈\n(扫描二维码)</string>
+    <string name="str_maintain_receiver">本工单已经由%1$s受理</string>
+    <!-- 提示 -->
+    <string name="msg_dialog_add_order_type_title">提示</string>
+    <string name="msg_dialog_confirm">确定</string>
+    <string name="msg_dialog_cancel">取消</string>
+    <string name="msg_confirm_cancel">确认退出？</string>
+    <string name="msg_confirm_control">确认这个操作？</string>
+    <string name="msg_control_success">操作成功!</string>
+    <string name="msg_control_failed">操作失败!</string>
+    <string name="msg_dialog_add_order_type_confirm">确定添加手工单吗?</string>
+    <string name="msg_add_workorder_success">添加手工单成功,现在去维保界面!</string>
+    <string name="msg_add_workorder_failed">添加手工单失败%1$s!</string>
+    <string name="msg_update_device_location_success">更新电梯经纬度成功!</string>
+    <string name="msg_update_device_location_failed">更新电梯经纬度失败!</string>
+    <string name="msg_begin_workorder_confirm">确定开始此次工作吗?</string>
+    <string name="msg_complete_workorder_confirm">确定提交并结束此次工作吗?</string>
+    <string name="msg_receive_workorder_confirm">确定受理工单吗?</string>
+    <string name="msg_pause_workorder_confirm">确定请求暂停吗?</string>
+    <string name="msg_continue_workorder_confirm">确定继续工作吗?</string>
+    <string name="msg_disable_workorder_confirm">确定请求作废吗?</string>
+    <string name="msg_init_workorder_confirm">确定放弃本工单吗?</string>
+    <string name="msg_changedate_workorder_confirm">确定变更日期吗?</string>
+    <string name="msg_quickclose_workorder_confirm">确定要快速关闭吗?</string>
+    <string name="msg_pause_confirm_pass">确定通过吗?</string>
+    <string name="msg_pause_confirm_reject">确定否决吗?</string>
+    <string name="msg_call_phone_confirm">要拨打电话%1$s-%2$s吗?</string>
+    <string name="msg_add_assist_worker">请至少选择一名协助人员,当前协助人员数量为0</string>
+    <string name="msg_add_order_type">请选择工单类型或操作类型</string>
+    <string name="msg_empty_quickclose_reason">必须填写原因,报修人,报修人电话</string>
+    <string name="msg_error_pic_send_take">提取照片失败,请检查sd卡或重新拍报/选取照片</string>
+    <string name="msg_confirm_setup_parts">确定把备件置为已安装吗?</string>
+    <string name="common_downloading">正在下载[%1$s%%]</string>
+
+    <string-array name="arr_status_workorder">
+        <item>无效</item>
+        <item>未开始</item>
+        <item>正在进行</item>
+        <item>已完成</item>
+    </string-array>
+    <!-- 其他 -->
+    <string name="lab_setting_login_name">登录名:%1$s</string>
+    <string name="lab_setting_user_name">用户名:%1$s</string>
+    <string name="lab_setting_user_telephone">电话:%1$s</string>
+    <string name="dialog_title_confirm_workorder_before">日常维保/抢修前提醒事项</string>
+    <string name="dialog_button_confirm_workorder_before">我已知悉，并已确认</string>
+    <string name="dialog_msg_confirm_workorder_before"> 
+1：严格遵守公司“工地安全手册”中各项安全操作规定。\n 
+2：参与人员持证上岗，按要求穿戴个人劳动防护用品。\n
+3：工作区域设置安全警示标志、放置安全防护栏，禁止无关人员进入。\n
+4：不需要带电工作时遵循锁闭警示程序。\n
+5：决不将身体任何部位处在未防护的移动（旋转）设备或电路板附近。\n
+6：扶梯人行道使用检修手柄动梯，决不在梯级轴上行走，进入机房底坑前验证安全。\n
+7：进出电梯轿顶和在轿顶底坑工作时验证安全，保持对电梯的控制。\n
+8：决不短接安全回路、安全触点（如门锁）。\n
+9：发生事故后，一小时内汇报上级领导，按公司规定操作。</string>
+    <string name="dialog_title_confirm_workorder_complete">日常维保/抢修后确认事项</string>
+    <string name="dialog_button_confirm_workorder_complete">我已确认上述事宜</string>
+    <string name="dialog_msg_confirm_workorder_complete">
+ 1：确认无短接或遗留短接线、无安全隐患，设备正常运行。\n
+2：设备无法恢复正常或遗留安全隐患时，断电停梯并做好安全警示及防护。\n
+3：告知客户设备状态，设备异常时须书面告知并汇报上级领导。</string>
+
+</resources>

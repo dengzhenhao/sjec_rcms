@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sjec.rcms"
+    android:versionCode="54"
+    android:versionName="2.0.9" >
+
+    <!-- 1.0  1  by dengh 20150924 -->
+    <!-- 1.1  2  by dengh 20150929 -->
+    <!-- 1.2  3  by dengh 20151010 -->
+    <!-- 1.3  4  by dengh 20151025 -->
+    <!-- 1.4  5  by dengh 20151030 -->
+    <!-- 1.5  6  by dengh 20151030 -->
+    <!-- 1.6  7  by dengh 20151030 -->
+    <!-- 1.7   8   by dengh 20151112 -->
+    <!-- 1.7.1  9  by dengh 20151120 -->
+    <!-- 1.7.2  10  by dengh 20151126 -->
+    <!-- 1.7.3  11  by dengh 20151130 -->
+    <!-- 1.7.4  12  by dengh 20151210 -->
+    <!-- 1.7.5  13  by dengh 20151217 -->
+    <!-- 1.7.6  14  by dengh 20160107 -->
+    <!-- 1.7.7  15  by dengh 20160115 -->
+    <!-- 1.7.8  16  by dengh 20160205 -->
+    <!-- 1.7.9  17  by dengh 20160205 -->
+    <!-- 1.7.10 18  by dengh 20160303 -->
+    <!-- 1.7.11  19  by dengh 20160303 -->
+    <!-- 1.7.12  20 by dengh 20160303 -->
+    <!-- 1.7.13  21  by dengh 20160317 -->
+    <!-- 1.7.15  23  by dengh 20160401 -->
+    <!-- 1.8  24  by dengh 20160405 -->
+    <!-- 1.8.1  25  by dengh 20160414 -->
+    <!-- 1.8.2  26  by dengh 20160418 -->
+    <!-- 1.8.3  27  by dengh 20160422 -->
+    <!-- 1.8.4  28  by dengh 20160427 -->
+    <!-- 1.8.5  29  by dengh 20160427 -->
+    <!-- 1.8.6  30  by dengh 20160428 -->
+    <!-- 1.8.7  31  by dengh 20160503 -->
+    <!-- 1.8.8  32  by dengh 20160511 -->
+    <!-- 1.8.9  33  by dengh 20160518 -->
+    <!-- 1.8.10  34  by dengh 20160526 -->
+    <!-- 1.8.11  35  by dengh 20160526 -->
+    <!-- 1.8.12  36  by dengh 20160526 -->
+    <!-- 1.8.13 37  by dengh 20160527 -->
+    <!-- 1.8.14 39  by dengh 20160531 -->
+    <!-- 1.8.15 40  by dengh 20160720 -->
+    <!-- 1.8.16 41  by dengh 20160721 -->
+    <!-- 1.8.18 43  by dengh 20160726 -->
+    <!-- 1.9 44  by dengh 20160726 -->
+    <!-- 2.0 45  by dengh 20160822 -->
+    <!-- 2.0.1 46  by dengh 20161115 -->
+    <!-- 2.0.2 47  by dengh 20170111 -->
+    <!-- 2.0.3 48  by dengh 20170118 -->
+    <!-- 2.0.4 49  by dengh 20170118 -->
+    <!-- 2.0.5 50  by dengh 20170216 -->
+    <!-- 2.0.8 53  by dengh 20170829 -->
+    <!-- 2.0.9 54  by dengh 20170831 -->
+    
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+
+    <application
+        android:name="com.sjec.rcms.baidu.MyApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppBaseTheme" >
+        <service
+            android:name="com.sjec.rcms.service.ServiceSJEC"
+            android:enabled="true" >
+        </service>
+        
+        <!-- <receiver android:name="com.sjec.rcms.service.NetBroadcastReceiver" >  
+            <intent-filter>  
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />  
+            </intent-filter>  
+        </receiver> -->
+
+        <!-- 登录 -->
+        <activity
+            android:name="com.sjec.rcms.activity.login.ActivityLogin"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sjec.rcms.activity.knowledge.ActivityTestAd"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.ActivityTestAd" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 注册 -->
+        <activity android:name="com.sjec.rcms.activity.login.ActivityRegist" >
+        </activity>
+        <!-- 修改密码 -->
+        <activity android:name="com.sjec.rcms.activity.user.ActivityChangePwd" >
+        </activity>
+        <!-- 主页面 -->
+        <activity
+            android:name=".activity.main.ActivityMain"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+        </activity>
+        <!-- 二维码 -->
+        <activity android:name="com.sjec.rcms.activity.qr.CaptureActivity" >
+        </activity>
+
+        <!-- 知识库 -->
+        <activity android:name="com.sjec.rcms.activity.knowledge.ActivityKnowledgeDetail" >
+        </activity>
+        <activity android:name="uk.co.senab.photoview.sample.ViewPagerActivity" >
+        </activity>
+
+        <!-- 信息采集 -->
+        <activity android:name="com.sjec.rcms.activity.device.ActivityCollectInfoV2" >
+        </activity>
+
+        <!-- 维保 -->
+        <activity android:name="com.sjec.rcms.activity.workorder.ActivityAddWorkorder" >
+        </activity>
+        <activity
+            android:name="com.sjec.rcms.activity.workorder.ActivityDoRepairV2"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.sjec.rcms.activity.workorder.ActivityDoMaintainV2"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.sjec.rcms.activity.workorder.ActivityDoCheck"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
+        </activity>
+        <activity android:name="com.sjec.rcms.activity.workorder.ActivityPauseReason" >
+        </activity>
+        <activity
+            android:name="com.sjec.rcms.activity.workorder.ActivityCompanyWorkerList"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+        </activity>
+        <activity android:name="com.sjec.rcms.activity.workorder.ActivityPicSend" >
+        </activity>
+        <activity
+            android:name="com.sjec.rcms.activity.workorder.ActivityApplySparePart"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.sjec.rcms.activity.workorder.ActivityApplySparePartAdd"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity android:name="com.sjec.rcms.activity.user.ActivityListSparePart" >
+        </activity>
+        <activity android:name="com.sjec.rcms.activity.user.ActivityDetailSparePart" >
+        </activity>
+
+        <!-- 个人功能 -->
+        <activity android:name="com.sjec.rcms.activity.user.ActivityConfirmList" >
+        </activity>
+        <activity android:name="com.sjec.rcms.activity.user.ActivityPauseList" >
+        </activity>
+        <activity android:name="com.sjec.rcms.activity.user.ActivityKunrenList" >
+        </activity>
+        <activity android:name="com.sjec.rcms.activity.user.ActivityConfirmInfo" >
+        </activity>
+
+        <!-- push应用定义消息receiver声明 -->
+        <receiver android:name="com.sjec.rcms.baidu.SJECPushMessageReceiver" >
+            <intent-filter>
+
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+            </intent-filter>
+        </receiver>
+
+        <!-- push必须的receviver和service声明 -->
+        <receiver
+            android:name="com.baidu.android.pushservice.PushServiceReceiver"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
+                <!-- 以下四项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.baidu.android.pushservice.RegistrationReceiver"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD" />
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.baidu.android.pushservice.PushService"
+            android:exported="true"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.baidu.android.pushservice.CommandService"
+            android:exported="true" />
+
+        <!-- 适配Android N系统必需的ContentProvider声明，写权限包含应用包名 -->
+        <provider
+            android:name="com.baidu.android.pushservice.PushInfoProvider"
+            android:authorities="com.sjec.rcms.bdpush"
+            android:exported="true"
+            android:protectionLevel="signature"
+            android:writePermission="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.sjec.rcms" />
+        <!-- push结束 -->
+
+
+        <!--
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+        -->
+
+
+        <!-- 在百度开发者中心查询应用的API Key -->
+        <meta-data
+            android:name="baidu_push_api_key"
+            android:value="8qu2Il37TOQsSLFXBy5rSBx9" />
+        <!-- 百度推送配置信息结束 -->
+
+
+        <!--
+             <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="nruN29eOwFtjUE4KuouWWsxq" />
+        -->
+        <!-- 百度地图发布用key: nruN29eOwFtjUE4KuouWWsxq -->
+        <!-- 百度地图开发用key: ohHmcBXIT4XwvOjvTwKKpMRy -->
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="4a2a17508cf69c8aeb6c2d136fa997d9" />
+
+        <!-- 定位需要的服务 使用2.0的定位需要加上这个 -->
+        <service android:name="com.amap.api.location.APSService" >
+        </service>
+
+        <!-- 百度统计 -->
+
+
+        <!-- 您从百度网站获取的APP KEY -->
+        <meta-data
+            android:name="BaiduMobAd_STAT_ID"
+            android:value="e130d221af" />
+        <!-- abcd1234 -->
+        <!-- 渠道商编号 -->
+        <meta-data
+            android:name="BaiduMobAd_CHANNEL"
+            android:value="Baidu Market" />
+
+        <!-- 是否开启错误日志统计，默认为false -->
+        <meta-data
+            android:name="BaiduMobAd_EXCEPTION_LOG"
+            android:value="true" />
+        <!-- 日志发送策略，可选值：APP_START、ONCE_A_DAY、SET_TIME_INTERVAL，默认为APP_START -->
+        <meta-data
+            android:name="BaiduMobAd_SEND_STRATEGY"
+            android:value="APP_START" />
+        <!-- 日志发送策略 为SET_TIME_INTERVAL时，需设定时间间隔(取消下行注释)。取值为1-24的整数，默认为1 -->
+        <!-- <meta-data android:name="BaiduMobAd_TIME_INTERVAL" android:value="2" /> -->
+        <!-- 日志仅在wifi网络下发送，默认为false -->
+        <meta-data
+            android:name="BaiduMobAd_ONLY_WIFI"
+            android:value="false" />
+        <!-- 是否获取基站位置信息 ,默认为true -->
+        <meta-data
+            android:name="BaiduMobAd_CELL_LOCATION"
+            android:value="true" />
+        <!-- 是否获取GPS位置信息，默认为true -->
+        <meta-data
+            android:name="BaiduMobAd_GPS_LOCATION"
+            android:value="true" />
+        <!-- 是否获取WIFI位置信息，默认为true -->
+        <meta-data
+            android:name="BaiduMobAd_WIFI_LOCATION"
+            android:value="true" />
+
+        <receiver android:name="com.baidu.bottom.service.BottomReceiver" >
+            <intent-filter>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.net.wifi.SCAN_RESULTS" />
+            </intent-filter>
+        </receiver>
+        <!-- 百度统计结束 -->
+    </application>
+
+</manifest>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 工单的4种类型 -->
+
+    <string-array name="arr_control_type_repair">
+        <item>急修</item>
+        <item>关人</item>
+        <item>配件更换</item>
+    </string-array>
+    <string-array name="arr_control_type_maintain">
+        <item>正常维保</item>
+        <item>大修改造</item>
+        <item>飞检</item>
+        <item>年检</item>
+    </string-array>
+    <string-array name="arr_control_type_check">
+        <item>飞检</item>
+        <item>总部稽查</item>
+        <item>分公司自检</item>
+        <item>年检前自检</item>
+        <item>年检</item>
+        <item>其他检查</item>
+    </string-array>
+    <string-array name="arr_workorder_source">
+        <item>400电话报修</item>
+        <item>远程监控</item>
+        <item>手工单</item>
+        <item>值班模式(本公司所有工单)</item>
+    </string-array>
+    <string-array name="arr_workorder_source_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <!-- 维保时，工单来源不需要选择 -->
+    <string-array name="arr_workorder_source_baoyang">
+        <item>来源不限</item>
+    </string-array>
+    <string-array name="arr_workorder_source_value_baoyang">
+        <item>-1</item>
+    </string-array>
+    <string-array name="arr_workorder_type">
+        <item>抢修工单</item>
+        <item>维保工单</item>
+        <item>协助工单</item>
+    </string-array>
+    <string-array name="arr_workorder_type_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="arr_workorder_status">
+        <item>任意工单状态</item>
+        <item>待解决</item>
+        <item>已开始</item>
+        <item>已完成</item>
+    </string-array>
+    <string-array name="arr_workorder_status_value">
+        <item></item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!--
+请求暂停：下拉菜单只可选择：等待配件、疑难问题，申请技术支持、其他原因（可包含类似身体不适等特殊原因）
+继续工作：跳出确认框“是否确定继续工作”或者直接下拉菜单只可选择：条件已允许继续工作
+请求作废：下拉菜单只可选择：无故障、其他原因（可包含类似人为故障，已恢复）
+放弃本单：下拉菜单只可选择：疑难问题，申请技术支持、其他原因
+维保工单建议修改：
+变更日期：下拉菜单只可选择：用户要求、公司要求、其他原因
+继续工作：跳出确认框“是否确定继续工作”或者直接下拉菜单只可选择：条件已允许继续工作
+    -->
+    <string-array name="arr_workorder_reason_maintain_changedate">
+        <item>用户要求</item>
+        <item>公司要求</item>
+        <item>其他原因</item>
+    </string-array>
+    <string-array name="arr_workorder_reason_pause">
+        <item>等待配件</item>
+        <item>疑难问题</item>
+        <item>申请技术支持</item>
+        <item>其他原因</item>
+    </string-array>
+    <string-array name="arr_workorder_reason_continue">
+        <item>条件已允许继续工作</item>
+    </string-array>
+    <string-array name="arr_workorder_reason_disable">
+        <item>无故障</item>
+        <item>其他原因</item>
+    </string-array>
+    <string-array name="arr_workorder_reason_init">
+        <item>重置,疑难问题</item>
+        <item>重置,申请技术支持</item>
+        <item>重置,其他原因</item>
+    </string-array>
+    <string-array name="arr_workorder_reason_quickclose">
+        <item>小故障快速关闭</item>
+    </string-array>
+    <string-array name="arr_spare_closestatus_key">
+        <item>全部</item>
+        <item>已关闭</item>
+        <item>未关闭</item>
+    </string-array>
+    <string-array name="arr_spare_closestatus_value">
+        <item></item>
+        <item>close</item>
+        <item>unclose</item>
+    </string-array>
+    <string-array name="arr_maintain_type_key">
+        <item>--选择保养性质--</item>
+        <item>正常保养</item>
+        <item>季度保养</item>
+        <item>半年度保养</item>
+        <item>年度保养</item>
+    </string-array>
+    <string-array name="arr_maintain_type_value">
+        <item></item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+</resources>

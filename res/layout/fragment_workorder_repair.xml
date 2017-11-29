@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+<com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:id="@+id/scroll_maintain"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true" >
+ 
+        <LinearLayout
+            android:id="@+id/layout_work_step"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_device_info_row"
+                    android:background="@drawable/line"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            style="@style/style_tv_device_info"
+                            android:text="@string/str_maintain_status"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_device_info_row"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            style="@style/style_tv_device_info"
+                            android:text="设备号" />
+
+                        <LinearLayout
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_border_device_info" >
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_workorder_device_num"
+                            style="@style/style_tv_device_info_right"
+                            android:text="-" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+                
+                
+                
+                <!-- 工单来源 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_device_info_row"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            style="@style/style_tv_device_info"
+                            android:text="工单来源" />
+
+                        <LinearLayout
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_border_device_info" >
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_workorder_event_source "
+                            style="@style/style_tv_device_info_right"
+                            android:text="-" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 工单来源结束 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_device_info_row"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            style="@style/style_tv_device_info"
+                            android:text="@string/str_maintain_status" />
+
+                        <LinearLayout
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_border_device_info" >
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_workorder_status"
+                            style="@style/style_tv_device_info_right"
+                            android:text="-" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+                <!-- 开始时间 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_device_info_row"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            style="@style/style_tv_device_info"
+                            android:text="开始处理时间" />
+
+                        <LinearLayout
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_border_device_info" >
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_workorder_starttime"
+                            style="@style/style_tv_device_info_right"
+                            android:text="-" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+                <!-- 开始时间 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_device_info_row"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            style="@style/style_tv_device_info"
+                            android:text="执行状态" />
+
+                        <LinearLayout
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_border_device_info" >
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_workorder_status_pause"
+                            style="@style/style_tv_device_info_right"
+                            android:text="-" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:minHeight="@dimen/height_device_info_row"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            style="@style/style_tv_device_info"
+                            android:text="@string/str_maintain_desc" />
+
+                        <LinearLayout
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_border_device_info" >
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_workorder_desc"
+                            style="@style/style_tv_device_info_right"
+                            android:text="-" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 小区地址 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <!-- 概要信息 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_device_info_row"
+                    android:background="@drawable/line"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            android:id="@+id/tv_workorder_begin"
+                            style="@style/style_tv_device_info"
+                            android:text="@string/str_repair_begin"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <!-- 小区地址 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_bg_device_info"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/tv_workorder_receiver"
+                            style="@style/style_tv_device_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dip"
+                            android:text=""
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dip"
+                            android:layout_marginTop="10dip"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingLeft="5dip"
+                            android:paddingRight="5dip" >
+
+                            <Button
+                                android:id="@+id/btn_receive_workorder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/frame_app"
+                                android:padding="5dip"
+                                android:text="@string/str_maintain_clicktoreceive"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/font_size_common" />
+
+                            <Button
+                                android:id="@+id/btn_begin_workorder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dip"
+                                android:background="@drawable/frame_app"
+                                android:padding="5dip"
+                                android:text="@string/str_repair_clicktobegin"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/font_size_common" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 台号 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 暂停，继续，作废操作 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <!-- 概要信息 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_device_info_row"
+                    android:background="@drawable/line"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            style="@style/style_tv_device_info"
+                            android:layout_width="170dip"
+                            android:text="@string/str_maintain_pause"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="12"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/tv_workorder_result"
+                        style="@style/style_tv_device_info"
+                        android:text="暂停/作废原因" />
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/et_workorder_pause_reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white"
+                        android:gravity="left|top"
+                        android:hint="请填写暂停/作废原因"
+                        android:minLines="3"
+                        android:padding="5dip"
+                        android:singleLine="false"
+                        android:text=""
+                        android:textSize="@dimen/font_size_common" >
+                    </EditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info"
+                    android:visibility="gone" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dip"
+                    android:background="@color/color_bg_device_info"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingLeft="5dip"
+                            android:paddingRight="5dip" >
+
+                            <Button
+                                android:id="@+id/btn_pause_workorder"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/frame_app"
+                                android:padding="5dip"
+                                android:text="请求暂停"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/font_size_common" />
+
+                            <Button
+                                android:id="@+id/btn_continue_workorder"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dip"
+                                android:layout_weight="1"
+                                android:background="@drawable/frame_app"
+                                android:padding="5dip"
+                                android:text="继续工作"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/font_size_common" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dip"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingLeft="5dip"
+                            android:paddingRight="5dip" >
+
+                            <Button
+                                android:id="@+id/btn_disable_workorder"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/frame_app"
+                                android:padding="5dip"
+                                android:text="请求作废"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/font_size_common" />
+
+                            <Button
+                                android:id="@+id/btn_init_workorder"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dip"
+                                android:layout_weight="1"
+                                android:background="@drawable/frame_app"
+                                android:padding="5dip"
+                                android:text="放弃本单"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/font_size_common" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 步骤明细 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_device_info_row"
+                    android:background="@drawable/line"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            android:id="@+id/tv_workorder_complete"
+                            style="@style/style_tv_device_info"
+                            android:layout_width="wrap_content"
+                            android:paddingLeft="10dip"
+                            android:text="@string/str_repair_complete"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_bg_device_info"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/style_tv_device_info"
+                            android:text="@string/str_repair_result" />
+
+                        <LinearLayout
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_border_device_info" >
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/et_workorder_remark"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/white"
+                            android:gravity="left|top"
+                            android:hint="@string/str_repair_hit_remark"
+                            android:minLines="3"
+                            android:padding="5dip"
+                            android:singleLine="false"
+                            android:text=""
+                            android:textSize="@dimen/font_size_common" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dip"
+                    android:background="@color/color_bg_device_info"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="5dip" >
+
+                        <Button
+                            android:id="@+id/btn_complete_workorder_qr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/frame_app"
+                            android:padding="5dip"
+                            android:text="@string/str_repair_clicktocomplete_qr"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/font_size_common" />
+
+                        <Button
+                            android:id="@+id/btn_complete_workorder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dip"
+                            android:layout_weight="1"
+                            android:background="@drawable/frame_app"
+                            android:padding="5dip"
+                            android:text="@string/str_repair_clicktocomplete"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/font_size_common"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 推送记录 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_device_info_row"
+                    android:background="@drawable/line"
+                    android:orientation="horizontal"
+                    android:weightSum="12" >
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="12"
+                        android:gravity="left" >
+
+                        <TextView
+                            style="@style/style_tv_device_info"
+                            android:layout_alignParentLeft="true"
+                            android:text="推送记录"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_collect_push_list"
+                            style="@style/style_tv_device_info"
+                            android:layout_width="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:paddingRight="5dip"
+                            android:text="展开/收起"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_border_device_info" >
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 推送记录,动态添加 -->
+
+                <LinearLayout
+                    android:id="@+id/layout_push_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/color_border_device_info" >
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 推送记录结束 -->
+        </LinearLayout>
+
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+</LinearLayout>

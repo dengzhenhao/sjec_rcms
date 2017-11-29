@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <drawable name="trans">#00000000</drawable>
+    <drawable name="white">#ffffff</drawable>
+    <drawable name="d1d1d1">#d1d1d1</drawable>
+    <drawable name="e7e7e7">#e7e7e7</drawable>
+    <drawable name="drawable_676767">#676767</drawable>
+    <drawable name="cecece">#cecece</drawable>
+    <drawable name="drawable_layout_press_down">#44000000</drawable>
+    <drawable name="drawable_system">#3C3A4F</drawable>
+    <drawable name="drawable_bg_btn_press_down">#606793</drawable>
+    <drawable name="drawable_b7b8bc">#b7b8bc</drawable>
+
+    <color name="drawable_system">#3C3A4F</color>
+    <color name="color_btn">#5f6692</color>
+    <color name="color_system">#3C3A4F</color>
+    <color name="color_bg_btn_press_down">#606793</color>
+    <color name="color_b7b8bc">#b7b8bc</color>
+    <color name="color_border">#cacaca</color>
+    <color name="color_border_device_info">#cbccd1</color>
+    <color name="color_bg_device_info">#f8f9fb</color>
+    <color name="color_link">#2319dc</color>
+    <color name="color_red">#e7133b</color>
+ <!-- 列表字体颜色,红色 -->
+    <color name="color_yellow ">#e78113</color>
+ <!-- 列表字体颜色,红色 -->
+ 
+ <color name="color_light_green">#019b52</color>
+
+</resources>

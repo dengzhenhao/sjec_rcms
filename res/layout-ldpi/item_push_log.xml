@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_border_device_info" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_common_layout_trans"
+        android:minHeight="@dimen/height_device_info_row"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="left" >
+
+            <TextView
+                android:id="@+id/tv_push_phone"
+                style="@style/style_tv_device_info"
+                android:text="13771781983"
+                android:textColor="@color/color_link" />
+
+            <LinearLayout
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_push_name"
+                style="@style/style_tv_device_info"
+                android:layout_width="65dip"
+                android:text="姓名名" />
+
+            <LinearLayout
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <TextView
+                 android:id="@+id/tv_push_result"
+                style="@style/style_tv_device_info"
+                android:layout_width="40dip"
+                android:text="成功" />
+
+            <LinearLayout
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+            <TextView
+                 android:id="@+id/tv_push_time"
+                style="@style/style_tv_device_info"
+                android:layout_width="match_parent"
+                android:text="2015-11-11 11:11" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

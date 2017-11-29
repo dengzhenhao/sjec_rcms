@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/drawable_layout_press_down"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <!-- 概要信息 -->
+
+    <LinearLayout
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame_common"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <!-- 概要信息 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+
+        <!-- 小区名称 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_device_info_row"
+            android:orientation="horizontal"
+            android:weightSum="12" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="left" >
+
+                <TextView
+                    style="@style/style_tv_device_info_right"
+                    android:text="距上次"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+
+        <!-- 设备号 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_device_info_row"
+            android:orientation="horizontal"
+            android:weightSum="12" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="left" >
+
+                <TextView
+                    android:id="@+id/tv_season_maitain"
+                    style="@style/style_tv_device_info_right"
+                    android:layout_marginLeft="20dip"
+                    android:text="(季度)保养已过天" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_device_info_row"
+            android:orientation="horizontal"
+            android:weightSum="12" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="left" >
+
+                <TextView
+                    android:id="@+id/tv_half_year_maitain"
+                    style="@style/style_tv_device_info_right"
+                    android:layout_marginLeft="20dip"
+                    android:text="(半年度)保养已过天" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+
+        <!-- 选择维保性质 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_device_info_row"
+            android:layout_marginTop="20dip"
+            android:orientation="horizontal"
+            android:weightSum="12" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="left"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/style_tv_device_info_right"
+                    android:text="本次保养性质为"
+                    android:textStyle="bold"  />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_device_info_row"
+            android:orientation="horizontal"
+            android:weightSum="12" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="left" >
+
+                <CheckBox
+                    android:id="@+id/cb_half_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:tag="1"
+                    android:text="半月度"
+                    android:textSize="@dimen/font_size_common" />
+
+                <CheckBox
+                    android:id="@+id/cb_season"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:tag="2"
+                    android:text="季度"
+                    android:textSize="@dimen/font_size_common" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_device_info_row"
+            android:orientation="horizontal"
+            android:weightSum="12" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="12"
+                android:gravity="left" >
+
+                <CheckBox
+                    android:id="@+id/cb_half_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:tag="3"
+                    android:text="半年度"
+                    android:textSize="@dimen/font_size_common" />
+
+                <CheckBox
+                    android:id="@+id/cb_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:tag="4"
+                    android:text="年度"
+                    android:textSize="@dimen/font_size_common" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center"
+            android:padding="10dip" >
+
+            <Button
+                android:id="@+id/btn_confirm_receive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/frame_app"
+                android:padding="10dip"
+                android:text="确定受理"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_common" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

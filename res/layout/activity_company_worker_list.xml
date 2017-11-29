@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_title"
+        layout="@layout/widget_title" />
+    
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="10"
+                android:background="@drawable/frame_common"
+                android:gravity="center_vertical|left"
+                android:orientation="horizontal"
+                android:padding="0dip" >
+
+                
+
+                <ImageView
+                    android:layout_width="15dip"
+                    android:layout_height="15dip"
+                    android:layout_marginLeft="10dip"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/search_04" />
+
+                <EditText
+                    android:id="@+id/et_search_keyword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dip"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_weight="10"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/str_hint_search_keyword"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:singleLine="true"
+                    android:textSize="@dimen/font_size_common" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="50dip"
+                android:layout_height="30dip"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/frame_app"
+                android:padding="0dip"
+                android:text="@string/str_search"
+                android:textColor="#fff"
+                android:textSize="@dimen/font_size_common" />
+        </LinearLayout>
+        
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10" >
+
+        <LinearLayout
+            android:id="@+id/layout_company_worker_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dip"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="5dip" >
+
+        <Button
+            android:id="@+id/btn_add_worker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/frame_app"
+            android:padding="10dip"
+            android:text="确认添加协助人员"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_size_common" />
+    </LinearLayout>
+
+</LinearLayout>

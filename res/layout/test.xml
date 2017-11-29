@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.handmark.pulltorefresh.library.PullToRefreshScrollView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll_maintain"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    ptr:ptrAnimationStyle="flip"
+    ptr:ptrMode="both" >
+
+     <TextView     android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:textColor="#fff"
+        android:text="werwerwer"/>
+   
+
+</com.handmark.pulltorefresh.library.PullToRefreshScrollView>

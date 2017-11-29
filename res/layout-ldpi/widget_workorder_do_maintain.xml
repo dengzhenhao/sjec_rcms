@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <!-- 部骤1:开始 -->
+    <!-- 部骤2:完成 -->
+
+
+    <!-- 基本信息 -->
+
+    <include
+        android:id="@+id/layout_device_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/widget_device_info"
+        android:visibility="gone" />
+
+    <!-- 步骤2的明细 -->
+
+
+    <!-- 步骤1的明细 -->
+
+    <include
+        android:id="@+id/layout_maintain_step"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/widget_workorder_maintain_step" 
+        android:visibility="visible"/>
+    
+     <include
+        android:id="@+id/layout_maintain_assist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/widget_assist_people"
+        android:visibility="gone" />
+
+</LinearLayout>

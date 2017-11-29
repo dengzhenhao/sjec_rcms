@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_border_device_info" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_common_layout_trans"
+        android:minHeight="@dimen/height_device_info_row"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="left" >
+
+            <TextView
+                android:id="@+id/tv_pause_content"
+                style="@style/style_tv_device_info"
+                android:layout_width="0dip"
+                android:layout_weight="2"
+                android:text="正常->暂停\n11-11 11:11" />
+
+            <LinearLayout
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+            
+            <TextView
+                android:id="@+id/tv_pause_remark"
+                style="@style/style_tv_device_info"
+                android:layout_width="0dip"
+                android:layout_weight="2"
+                android:padding="5dip"
+                android:gravity="left|center_vertical"
+                android:text="正常->暂停正常->暂停正常->暂停正常->暂停" />
+
+            <LinearLayout
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/color_border_device_info" >
+            </LinearLayout>
+
+           
+
+            <TextView
+                 android:id="@+id/tv_check_result"
+                style="@style/style_tv_device_info"
+                android:layout_width="0dip"
+                android:layout_weight="2"
+                android:text="待审核\n11-11 11:11" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/color_border_device_info" >
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

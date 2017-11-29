@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_title"
+        layout="@layout/widget_title" />
+
+    		<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/frame_common"
+                android:gravity="center_vertical|left"
+                android:orientation="horizontal"
+                android:padding="0dip"
+                android:layout_margin="5dip" >
+
+                <Spinner
+                    android:id="@+id/sp_pause_reason"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="1dip"
+                    android:background="@android:color/white"
+                    android:paddingLeft="10dip"
+                    android:visibility="visible" />
+                   <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginRight="20dip"
+                                        android:src="@drawable/search_03" />
+                
+                
+            </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="5dip"
+             android:layout_marginRight="5dip"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/et_reason"
+            android:layout_width="match_parent"
+            android:layout_height="80dip"
+            android:hint="其它原因"
+            android:maxLines="6"
+                    android:textCursorDrawable="@null" 
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+        
+        <EditText
+            android:id="@+id/et_caller_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="报修人"
+            android:textCursorDrawable="@null" 
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:visibility="gone"  />
+        
+        <EditText
+            android:id="@+id/et_caller_telephone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="报修人电话"
+              android:digits="0123456789"
+                    android:inputType="number"
+            android:textCursorDrawable="@null" 
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="120dip"
+            android:layout_height="wrap_content"
+            android:background="@drawable/frame_app"
+            android:padding="5dip"
+            android:layout_marginTop="5dip"
+            android:text="确定"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</LinearLayout>
