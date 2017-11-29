@@ -69,7 +69,7 @@ import android.widget.Toast;
  * @Copyright (c) 2014 by 苏州威博世网络科技有限公司.
  */
 public abstract class BaseActivity extends Activity implements
-		View.OnClickListener {
+		View.OnClickListener { 
 
 	public static boolean isInitParam = false;
 
