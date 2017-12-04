@@ -29,11 +29,12 @@ public class EntityMaintain {
     public String Update_Time;
     public String Update_IP	;
     public String ChargeUserID;
+    public String is_pic_exists;
 
     public EntityMaintain() {
     }
 
-    public EntityMaintain(String InnerID, String Company_Num, String Device_Num, String ProvisionMaintainTime, Integer Status, Integer StartFlag, String StartTime, Integer EndFlag, String EndTime, String StartLongitude, String StartLatitude, String EndLongitude	, String EndLatitude, String MaintainDesc, String LeaderRemark, String Validate, String Add_UserID, String Add_Time, String Add_IP, String Update_UserID, String Update_Time, String Update_IP	, String ChargeUserID) {
+    public EntityMaintain(String InnerID, String Company_Num, String Device_Num, String ProvisionMaintainTime, Integer Status, Integer StartFlag, String StartTime, Integer EndFlag, String EndTime, String StartLongitude, String StartLatitude, String EndLongitude	, String EndLatitude, String MaintainDesc, String LeaderRemark, String Validate, String Add_UserID, String Add_Time, String Add_IP, String Update_UserID, String Update_Time, String Update_IP	, String ChargeUserID, String is_pic_exists) {
         this.InnerID = InnerID;
         this.Company_Num = Company_Num;
         this.Device_Num = Device_Num;
@@ -57,6 +58,7 @@ public class EntityMaintain {
         this.Update_Time = Update_Time;
         this.Update_IP	 = Update_IP	;
         this.ChargeUserID = ChargeUserID;
+        this.is_pic_exists = is_pic_exists;
     }
 
     public String getInnerID() {
@@ -241,6 +243,14 @@ public class EntityMaintain {
 
     public void setChargeUserID(String ChargeUserID) {
         this.ChargeUserID = ChargeUserID;
+    }
+
+    public String getIs_pic_exists() {
+        return is_pic_exists;
+    }
+
+    public void setIs_pic_exists(String is_pic_exists) {
+        this.is_pic_exists = is_pic_exists;
     }
 
 }

@@ -53,6 +53,7 @@ public class EntityWorkorderDao extends AbstractDao<EntityWorkorder, Void> {
         public final static Property MaintainType = new Property(27, String.class, "MaintainType", false, "MAINTAIN_TYPE");
         public final static Property ResultDesc = new Property(28, String.class, "ResultDesc", false, "RESULT_DESC");
         public final static Property ResultType = new Property(29, String.class, "ResultType", false, "RESULT_TYPE");
+        public final static Property Is_pic_exists = new Property(30, String.class, "is_pic_exists", false, "IS_PIC_EXISTS");
     };
 
 
@@ -97,7 +98,8 @@ public class EntityWorkorderDao extends AbstractDao<EntityWorkorder, Void> {
                 "'LAST_HALF_YEAR_MAINTAIN' TEXT," + // 26: LastHalfYearMaintain
                 "'MAINTAIN_TYPE' TEXT," + // 27: MaintainType
                 "'RESULT_DESC' TEXT," + // 28: ResultDesc
-                "'RESULT_TYPE' TEXT);"); // 29: ResultType
+                "'RESULT_TYPE' TEXT," + // 29: ResultType
+                "'IS_PIC_EXISTS' TEXT);"); // 30: is_pic_exists
     }
 
     /** Drops the underlying database table. */
@@ -260,6 +262,11 @@ public class EntityWorkorderDao extends AbstractDao<EntityWorkorder, Void> {
         if (ResultType != null) {
             stmt.bindString(30, ResultType);
         }
+ 
+        String is_pic_exists = entity.getIs_pic_exists();
+        if (is_pic_exists != null) {
+            stmt.bindString(31, is_pic_exists);
+        }
     }
 
     /** @inheritdoc */
@@ -301,7 +308,8 @@ public class EntityWorkorderDao extends AbstractDao<EntityWorkorder, Void> {
             cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26), // LastHalfYearMaintain
             cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27), // MaintainType
             cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28), // ResultDesc
-            cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29) // ResultType
+            cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29), // ResultType
+            cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30) // is_pic_exists
         );
         return entity;
     }
@@ -339,6 +347,7 @@ public class EntityWorkorderDao extends AbstractDao<EntityWorkorder, Void> {
         entity.setMaintainType(cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27));
         entity.setResultDesc(cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28));
         entity.setResultType(cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29));
+        entity.setIs_pic_exists(cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30));
      }
     
     /** @inheritdoc */

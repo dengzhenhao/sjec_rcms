@@ -44,8 +44,8 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingLeft="10dip"
-            android:visibility="gone"
-            android:paddingRight="10dip" >
+            android:paddingRight="10dip"
+            android:visibility="gone" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,7 +61,8 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1" >
- 	<Spinner
+
+                    <Spinner
                         android:id="@+id/sp_workorder_type"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -70,13 +71,12 @@
                         android:paddingLeft="10dip"
                         android:textAlignment="center"
                         android:visibility="visible" />
-                    
 
                     <ImageView
                         android:layout_width="15dip"
                         android:layout_height="15dip"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
                         android:background="@drawable/icon_spinner_corner" />
                 </RelativeLayout>
 
@@ -85,7 +85,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1" >
 
-                   <Spinner
+                    <Spinner
                         android:id="@+id/sp_workorder_source"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -94,24 +94,23 @@
                         android:paddingLeft="10dip"
                         android:textAlignment="center"
                         android:visibility="visible" />
-                     <ImageView
+
+                    <ImageView
                         android:layout_width="15dip"
                         android:layout_height="15dip"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
                         android:background="@drawable/icon_spinner_corner" />
                 </RelativeLayout>
-
-               
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dip"
+            android:layout_marginBottom="5dip"
             android:layout_marginTop="5dip"
-               android:layout_marginBottom="5dip"
-                android:gravity="center"
+            android:gravity="center"
             android:orientation="horizontal"
             android:paddingLeft="10dip"
             android:paddingRight="10dip" >
@@ -126,8 +125,6 @@
                 android:gravity="center_vertical|left"
                 android:orientation="horizontal"
                 android:padding="0dip" >
-
-                
 
                 <EditText
                     android:id="@+id/et_search_keyword"
@@ -145,40 +142,47 @@
                     android:textSize="@dimen/font_size_common" />
             </LinearLayout>
 
-             <RelativeLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5" 
-                android:layout_marginLeft="5dip">
+            <CheckBox
+                android:id="@+id/cbx_upload_pics"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleX="0.75"
+                android:scaleY="0.75"
+                android:text="未上传\n图片" />
 
-                    <Spinner
-                        android:id="@+id/sp_workorder_status"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/frame_common"
-                        android:gravity="center"
-                        android:paddingLeft="10dip"
-                        android:textAlignment="center"
-                        android:visibility="visible" />
-                    
-                     <ImageView
-                        android:layout_width="10dip"
-                        android:layout_height="10dip"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        
-                android:layout_marginRight="3dip"
-                android:layout_marginBottom="3dip"
-                        android:background="@drawable/icon_spinner_corner" />
-                </RelativeLayout>
-                
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dip"
+                android:layout_weight="1.5" >
+
+                <Spinner
+                    android:id="@+id/sp_workorder_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/frame_common"
+                    android:gravity="center"
+                    android:paddingLeft="10dip"
+                    android:textAlignment="center"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:layout_width="10dip"
+                    android:layout_height="10dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="3dip"
+                    android:layout_marginRight="3dip"
+                    android:background="@drawable/icon_spinner_corner" />
+            </RelativeLayout>
+
             <Button
                 android:id="@+id/btn_search"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                 android:layout_weight="0.8"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="5dip"
+                android:layout_weight="0.8"
                 android:background="@drawable/frame_app"
                 android:padding="0dip"
                 android:text="@string/str_search"
@@ -186,17 +190,14 @@
                 android:textSize="@dimen/font_size_common" />
         </LinearLayout>
 
+        <include layout="@layout/widget_main_top_tab" />
 
-        
-         <include layout="@layout/widget_main_top_tab" />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/id_page_vp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" >
-    </android.support.v4.view.ViewPager>
-        
+        <android.support.v4.view.ViewPager
+            android:id="@+id/id_page_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+        </android.support.v4.view.ViewPager>
     </LinearLayout>
 
     <include
@@ -205,16 +206,16 @@
         android:layout_height="fill_parent"
         layout="@layout/widget_loading"
         android:visibility="gone" />
-    
-         <com.handmark.pulltorefresh.library.PullToRefreshListView
-            android:id="@+id/lv_workorder"
-            android:layout_width="0dip"
-            android:layout_height="0dip"
-            android:layout_marginTop="10dip"
-            android:cacheColorHint="#00000000"
-            android:divider="@null"
-            android:fastScrollEnabled="true"
-            android:orientation="vertical"
-            android:visibility="gone" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/lv_workorder"
+        android:layout_width="0dip"
+        android:layout_height="0dip"
+        android:layout_marginTop="10dip"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:fastScrollEnabled="true"
+        android:orientation="vertical"
+        android:visibility="gone" />
 
 </RelativeLayout>

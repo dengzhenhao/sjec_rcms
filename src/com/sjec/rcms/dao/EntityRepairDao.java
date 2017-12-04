@@ -47,6 +47,7 @@ public class EntityRepairDao extends AbstractDao<EntityRepair, Void> {
         public final static Property Update_Time = new Property(21, String.class, "Update_Time", false, "UPDATE__TIME");
         public final static Property Update_IP	 = new Property(22, String.class, "Update_IP	", false, "UPDATE__IP	");
         public final static Property ChargeUserID = new Property(23, String.class, "ChargeUserID", false, "CHARGE_USER_ID");
+        public final static Property Is_pic_exists = new Property(24, String.class, "is_pic_exists", false, "IS_PIC_EXISTS");
     };
 
 
@@ -85,7 +86,8 @@ public class EntityRepairDao extends AbstractDao<EntityRepair, Void> {
                 "'UPDATE__USER_ID' TEXT," + // 20: Update_UserID
                 "'UPDATE__TIME' TEXT," + // 21: Update_Time
                 "'UPDATE__IP	' TEXT," + // 22: Update_IP	
-                "'CHARGE_USER_ID' TEXT);"); // 23: ChargeUserID
+                "'CHARGE_USER_ID' TEXT," + // 23: ChargeUserID
+                "'IS_PIC_EXISTS' TEXT);"); // 24: is_pic_exists
     }
 
     /** Drops the underlying database table. */
@@ -218,6 +220,11 @@ public class EntityRepairDao extends AbstractDao<EntityRepair, Void> {
         if (ChargeUserID != null) {
             stmt.bindString(24, ChargeUserID);
         }
+ 
+        String is_pic_exists = entity.getIs_pic_exists();
+        if (is_pic_exists != null) {
+            stmt.bindString(25, is_pic_exists);
+        }
     }
 
     /** @inheritdoc */
@@ -253,7 +260,8 @@ public class EntityRepairDao extends AbstractDao<EntityRepair, Void> {
             cursor.isNull(offset + 20) ? null : cursor.getString(offset + 20), // Update_UserID
             cursor.isNull(offset + 21) ? null : cursor.getString(offset + 21), // Update_Time
             cursor.isNull(offset + 22) ? null : cursor.getString(offset + 22), // Update_IP	
-            cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23) // ChargeUserID
+            cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23), // ChargeUserID
+            cursor.isNull(offset + 24) ? null : cursor.getString(offset + 24) // is_pic_exists
         );
         return entity;
     }
@@ -285,6 +293,7 @@ public class EntityRepairDao extends AbstractDao<EntityRepair, Void> {
         entity.setUpdate_Time(cursor.isNull(offset + 21) ? null : cursor.getString(offset + 21));
         entity.setUpdate_IP	(cursor.isNull(offset + 22) ? null : cursor.getString(offset + 22));
         entity.setChargeUserID(cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23));
+        entity.setIs_pic_exists(cursor.isNull(offset + 24) ? null : cursor.getString(offset + 24));
      }
     
     /** @inheritdoc */

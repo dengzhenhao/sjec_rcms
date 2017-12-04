@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sjec.rcms"
-    android:versionCode="54"
-    android:versionName="2.0.9" >
+    android:versionCode="57"
+    android:versionName="2.0.12" >
 
     <!-- 1.0  1  by dengh 20150924 -->
     <!-- 1.1  2  by dengh 20150929 -->
@@ -53,6 +53,9 @@
     <!-- 2.0.5 50  by dengh 20170216 -->
     <!-- 2.0.8 53  by dengh 20170829 -->
     <!-- 2.0.9 54  by dengh 20170831 -->
+    <!-- 2.0.10 55  by dengh 20171204 -->
+    <!-- 2.0.11 56  by dengh 20171204 -->
+    <!-- 2.0.12 57  by dengh 20171204 -->
     
     <uses-sdk
         android:minSdkVersion="14"

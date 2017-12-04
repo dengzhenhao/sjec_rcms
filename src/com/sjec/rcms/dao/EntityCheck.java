@@ -22,11 +22,12 @@ public class EntityCheck {
     public String EndLongitude;
     public String EndLatitude;
     public String CheckDesc;
+    public String is_pic_exists;
 
     public EntityCheck() {
     }
 
-    public EntityCheck(String InnerID, String Add_UserID, String Add_Time, String Add_IP, String Update_UserID, String Update_Time, String Update_IP, String CompleteDate	, String ConfirmUserID, String ConfirmRemark, Integer IsNeedAbarbeitung, String StartLongitude, String StartLatitude, String EndLongitude, String EndLatitude, String CheckDesc) {
+    public EntityCheck(String InnerID, String Add_UserID, String Add_Time, String Add_IP, String Update_UserID, String Update_Time, String Update_IP, String CompleteDate	, String ConfirmUserID, String ConfirmRemark, Integer IsNeedAbarbeitung, String StartLongitude, String StartLatitude, String EndLongitude, String EndLatitude, String CheckDesc, String is_pic_exists) {
         this.InnerID = InnerID;
         this.Add_UserID = Add_UserID;
         this.Add_Time = Add_Time;
@@ -43,6 +44,7 @@ public class EntityCheck {
         this.EndLongitude = EndLongitude;
         this.EndLatitude = EndLatitude;
         this.CheckDesc = CheckDesc;
+        this.is_pic_exists = is_pic_exists;
     }
 
     public String getInnerID() {
@@ -171,6 +173,14 @@ public class EntityCheck {
 
     public void setCheckDesc(String CheckDesc) {
         this.CheckDesc = CheckDesc;
+    }
+
+    public String getIs_pic_exists() {
+        return is_pic_exists;
+    }
+
+    public void setIs_pic_exists(String is_pic_exists) {
+        this.is_pic_exists = is_pic_exists;
     }
 
 }

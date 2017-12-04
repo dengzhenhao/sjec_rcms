@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">江南嘉捷远程监控</string>
-    <string name="str_versionName">版本:2.0.7</string>
+    <string name="str_versionName">版本:2.0.12</string>
     <string name="phonenum_400">4008282688</string>
     <!-- 设置 -->
     <string name="common_config_lbs">请打开定位设置定位模式为 "准确度高"</string>
@@ -10,7 +10,7 @@
     <string name="common_login_failed">登录失败,请检查用户或密码</string>
     <string name="common_exit_repeat_press">再按一次退出应用程序</string>
     <!-- 顶部控件 -->
-    <string name="title_label">电梯维保</string>
+    <string name="title_label">电梯维保</string> 
     <!-- 登录&注册 -->
     <string name="title_label_login">登录</string>
     <string name="title_label_regist">注册</string>

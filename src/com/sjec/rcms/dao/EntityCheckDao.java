@@ -39,6 +39,7 @@ public class EntityCheckDao extends AbstractDao<EntityCheck, Void> {
         public final static Property EndLongitude = new Property(13, String.class, "EndLongitude", false, "END_LONGITUDE");
         public final static Property EndLatitude = new Property(14, String.class, "EndLatitude", false, "END_LATITUDE");
         public final static Property CheckDesc = new Property(15, String.class, "CheckDesc", false, "CHECK_DESC");
+        public final static Property Is_pic_exists = new Property(16, String.class, "is_pic_exists", false, "IS_PIC_EXISTS");
     };
 
 
@@ -69,7 +70,8 @@ public class EntityCheckDao extends AbstractDao<EntityCheck, Void> {
                 "'START_LATITUDE' TEXT," + // 12: StartLatitude
                 "'END_LONGITUDE' TEXT," + // 13: EndLongitude
                 "'END_LATITUDE' TEXT," + // 14: EndLatitude
-                "'CHECK_DESC' TEXT);"); // 15: CheckDesc
+                "'CHECK_DESC' TEXT," + // 15: CheckDesc
+                "'IS_PIC_EXISTS' TEXT);"); // 16: is_pic_exists
     }
 
     /** Drops the underlying database table. */
@@ -162,6 +164,11 @@ public class EntityCheckDao extends AbstractDao<EntityCheck, Void> {
         if (CheckDesc != null) {
             stmt.bindString(16, CheckDesc);
         }
+ 
+        String is_pic_exists = entity.getIs_pic_exists();
+        if (is_pic_exists != null) {
+            stmt.bindString(17, is_pic_exists);
+        }
     }
 
     /** @inheritdoc */
@@ -189,7 +196,8 @@ public class EntityCheckDao extends AbstractDao<EntityCheck, Void> {
             cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12), // StartLatitude
             cursor.isNull(offset + 13) ? null : cursor.getString(offset + 13), // EndLongitude
             cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14), // EndLatitude
-            cursor.isNull(offset + 15) ? null : cursor.getString(offset + 15) // CheckDesc
+            cursor.isNull(offset + 15) ? null : cursor.getString(offset + 15), // CheckDesc
+            cursor.isNull(offset + 16) ? null : cursor.getString(offset + 16) // is_pic_exists
         );
         return entity;
     }
@@ -213,6 +221,7 @@ public class EntityCheckDao extends AbstractDao<EntityCheck, Void> {
         entity.setEndLongitude(cursor.isNull(offset + 13) ? null : cursor.getString(offset + 13));
         entity.setEndLatitude(cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14));
         entity.setCheckDesc(cursor.isNull(offset + 15) ? null : cursor.getString(offset + 15));
+        entity.setIs_pic_exists(cursor.isNull(offset + 16) ? null : cursor.getString(offset + 16));
      }
     
     /** @inheritdoc */

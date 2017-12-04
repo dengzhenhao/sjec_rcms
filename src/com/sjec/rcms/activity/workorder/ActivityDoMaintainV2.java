@@ -67,6 +67,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.sjec.rcms.R;
 import com.sjec.rcms.activity.BaseActivity;
 import com.sjec.rcms.activity.device.ActivityCollectInfo;
+import com.sjec.rcms.activity.knowledge.ActivityKnowledgeDetail;
 import com.sjec.rcms.activity.qr.CaptureActivity;
 import com.sjec.rcms.baidu.MyApplication;
 import com.sjec.rcms.dao.EntityAssistWorker;
@@ -96,15 +97,12 @@ import com.websharputil.widget.ThumbImageView;
 /**
  * 
  * @类名称：ActivityDoMaintain
- * @包名：com.sjec.rcms.activity.maintain
- * @描述： 维保工单详细页面
- * @创建人： dengzh
+ * @包名：com.sjec.rcms.activity.maintain @描述： 维保工单详细页面 @创建人： dengzh
  * @创建时间:2015-8-7 下午4:09:12
  * @版本 V1.0
  * @Copyright (c) 2015 by 苏州威博世网络科技有限公司.
  */
-public class ActivityDoMaintainV2 extends BaseActivity implements
-		LocationSource, AMapLocationListener {
+public class ActivityDoMaintainV2 extends BaseActivity implements LocationSource, AMapLocationListener {
 	private TextView tv_title;
 	private LinearLayout layout_back;
 	// private int order_type = Constant.EnumWorkorderType.TYPE_WORKORDER_2;
@@ -116,24 +114,20 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 	// 概要信息
 	private TextView tv_xqmc, tv_xqdz, tv_sbh, tv_zh, tv_th, tv_latlng;
 	// 基本信息
-	private TextView tv_xmmc, tv_hth, tv_txtz, tv_dtxh, tv_jhrq, tv_zzcs,
-			tv_cpgg, tv_sydw, tv_sbdz;
+	private TextView tv_xmmc, tv_hth, tv_txtz, tv_dtxh, tv_jhrq, tv_zzcs, tv_cpgg, tv_sydw, tv_sbdz;
 
-	private TextView tv_base_info, tv_maintain, tv_workorder_status,
-			tv_workorder_starttime, et_workorder_remark, tv_workorder_receiver,
-			tv_workorder_desc, tv_workorder_device_num,
-			tv_workorder_event_source, tv_assist_people, tv_workorder_endtime,
-			tv_workorder_provisionmaintaintime, tv_workorder_maintain_type;
+	private TextView tv_base_info, tv_maintain, tv_workorder_status, tv_workorder_starttime, et_workorder_remark,
+			tv_workorder_receiver, tv_workorder_desc, tv_workorder_device_num, tv_workorder_event_source,
+			tv_assist_people, tv_workorder_endtime, tv_workorder_provisionmaintaintime, tv_workorder_maintain_type,
+			tv_workorder_upload_pics;
 
-	private Button btn_begin_workorder, btn_complete_workorder,
-			btn_receive_workorder, btn_complete_workorder_qr;
+	private Button btn_begin_workorder, btn_complete_workorder, btn_receive_workorder, btn_complete_workorder_qr;
 
 	private TextView tv_workorder_status_pause;
-	private Button btn_delay_workorder, btn_continue_workorder,
-			btn_quick_close, btn_workorder_pics, btn_apply_spare_part;
+	private Button btn_delay_workorder, btn_continue_workorder, btn_quick_close, btn_workorder_pics,
+			btn_apply_spare_part;
 
-	private LinearLayout layout_device_info, layout_maintain_step,
-			layout_maintain_assist;
+	private LinearLayout layout_device_info, layout_maintain_step, layout_maintain_assist;
 
 	private RelativeLayout layout_map;
 	private TextView tv_collect_map, tv_collect_push_list;
@@ -153,8 +147,8 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 	// 协助人员
 	private LinearLayout layout_assist_people;
-	private Button btn_invite_assist_people, btn_delete_assist_people,
-			btn_confirm_assist, btn_begin_assist, btn_close_assist;
+	private Button btn_invite_assist_people, btn_delete_assist_people, btn_confirm_assist, btn_begin_assist,
+			btn_close_assist;
 	/**
 	 * 是否所有协助人员都已经关闭呼叫,这时受理人才可以结束这个工单,否则不可结束本工单
 	 */
@@ -180,8 +174,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		public void onReceive(Context context, Intent intent) {
 			if (intent.getAction().equals(Constant.ACTION_REFRESH_WORKORDER)) {
 				queryDeviceAndWorkorderInfo();
-			} else if (intent.getAction().equals(
-					Constant.ACTION_REFRESH_ASSIST_LIST)) {
+			} else if (intent.getAction().equals(Constant.ACTION_REFRESH_ASSIST_LIST)) {
 				// queryDeviceAndWorkorderInfo();
 				queryAssistWorker();
 			}
@@ -195,9 +188,8 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		switch (v.getId()) {
 		case R.id.btn_location_device:
 			try {
-				aMap.animateCamera(CameraUpdateFactory
-						.newCameraPosition(new CameraPosition(deviceLatLng, 19,
-								0, 0)), 1000, null);
+				aMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(deviceLatLng, 19, 0, 0)),
+						1000, null);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -213,14 +205,11 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 				Util.createToast(this, "请选择维保性质！", Toast.LENGTH_SHORT).show();
 				return;
 			}
-			Util.createDialog(this, null,
-					R.string.msg_dialog_add_order_type_title,
-					R.string.msg_receive_workorder_confirm, null, true, false,
-					new DialogInterface.OnClickListener() {
+			Util.createDialog(this, null, R.string.msg_dialog_add_order_type_title,
+					R.string.msg_receive_workorder_confirm, null, true, false, new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
-							layout_select_maintain_type
-									.setVisibility(View.GONE);
+							layout_select_maintain_type.setVisibility(View.GONE);
 							// 更新状态为开始
 							updateWorkorderReceiver();
 						}
@@ -245,35 +234,27 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 			ChangeBottomStyle(v);
 			break;
 		case R.id.btn_begin_workorder:
-			if (GlobalData.listAsssitWorker.size() == 0
-					&& GlobalData.WorkerStatus != 1) {
-				Util.createToast(ActivityDoMaintainV2.this,
-						R.string.msg_add_assist_worker, 3000).show();
+			if (GlobalData.listAsssitWorker.size() == 0 && GlobalData.WorkerStatus != 1) {
+				Util.createToast(ActivityDoMaintainV2.this, R.string.msg_add_assist_worker, 3000).show();
 				return;
 			}
 
-			Util.createDialog(this, null,
-					R.string.msg_dialog_add_order_type_title,
-					R.string.msg_begin_workorder_confirm, null, true, false,
-					new DialogInterface.OnClickListener() {
+			Util.createDialog(this, null, R.string.msg_dialog_add_order_type_title,
+					R.string.msg_begin_workorder_confirm, null, true, false, new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							// 更新状态为开始
-							updateWorkorderStatus(Constant.EnumWorkorderStatus.STATUS_WORKORDER_2
-									+ "");
+							updateWorkorderStatus(Constant.EnumWorkorderStatus.STATUS_WORKORDER_2 + "");
 						}
 					}).show();
 			break;
 		case R.id.btn_complete_workorder:
-			Util.createDialog(this, null,
-					R.string.msg_dialog_add_order_type_title,
-					R.string.msg_complete_workorder_confirm, null, true, false,
-					new DialogInterface.OnClickListener() {
+			Util.createDialog(this, null, R.string.msg_dialog_add_order_type_title,
+					R.string.msg_complete_workorder_confirm, null, true, false, new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							// 更新状态为完成
-							updateWorkorderStatus(Constant.EnumWorkorderStatus.STATUS_WORKORDER_3
-									+ "");
+							updateWorkorderStatus(Constant.EnumWorkorderStatus.STATUS_WORKORDER_3 + "");
 						}
 					}).show();
 			break;
@@ -285,16 +266,13 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 			} else {
 				if (resultType.equals(cb_result_type_other.getTag().toString())
 						&& getText(et_workorder_remark).isEmpty()) {
-					Util.createToast(this, "请填写维保结果与反馈", Toast.LENGTH_SHORT)
-							.show();
+					Util.createToast(this, "请填写维保结果与反馈", Toast.LENGTH_SHORT).show();
 					return;
 				}
 			}
 
-			ConfirmDialogControl(
-					R.string.dialog_title_confirm_workorder_complete,
-					R.string.dialog_msg_confirm_workorder_complete,
-					R.string.dialog_button_confirm_workorder_complete,
+			ConfirmDialogControl(R.string.dialog_title_confirm_workorder_complete,
+					R.string.dialog_msg_confirm_workorder_complete, R.string.dialog_button_confirm_workorder_complete,
 					new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
@@ -302,9 +280,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 							Bundle bQr = new Bundle();
 							bQr.putString("workorder_id", workorder_id);
 							bQr.putInt("scan_type", Constant.SCAN_TYPE3);
-							Intent intentQr = new Intent(
-									ActivityDoMaintainV2.this,
-									CaptureActivity.class);
+							Intent intentQr = new Intent(ActivityDoMaintainV2.this, CaptureActivity.class);
 							intentQr.putExtras(bQr);
 							startActivityForResult(intentQr, 99);
 						}
@@ -313,46 +289,31 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 			break;
 		case R.id.btn_delay_workorder:
 			b.putString("title", "请求延期");
-			b.putInt(
-					"type",
-					Constant.EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_MAINTAIN_CHANGEDATE);
-			Util.startActivity(ActivityDoMaintainV2.this,
-					ActivityPauseReason.class, b, false);
+			b.putInt("type", Constant.EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_MAINTAIN_CHANGEDATE);
+			Util.startActivity(ActivityDoMaintainV2.this, ActivityPauseReason.class, b, false);
 
 			break;
 		case R.id.btn_quick_close:
 			// 特殊情况关闭
 			b.putString("title", "特殊情况关闭");
-			b.putInt(
-					"type",
-					Constant.EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_MAINTAIN_QUICK_CLOSE);
-			Util.startActivity(ActivityDoMaintainV2.this,
-					ActivityPauseReason.class, b, false);
+			b.putInt("type", Constant.EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_MAINTAIN_QUICK_CLOSE);
+			Util.startActivity(ActivityDoMaintainV2.this, ActivityPauseReason.class, b, false);
 			break;
 		case R.id.btn_continue_workorder:
 			b.putString("title", "继续工作");
-			b.putInt(
-					"type",
-					Constant.EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_CONTINUE);
-			Util.startActivity(ActivityDoMaintainV2.this,
-					ActivityPauseReason.class, b, false);
+			b.putInt("type", Constant.EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_CONTINUE);
+			Util.startActivity(ActivityDoMaintainV2.this, ActivityPauseReason.class, b, false);
 			break;
 		case R.id.btn_disable_workorder:
 			b.putString("title", "请求作废");
-			b.putInt(
-					"type",
-					Constant.EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_INVALID);
-			Util.startActivity(ActivityDoMaintainV2.this,
-					ActivityPauseReason.class, b, false);
+			b.putInt("type", Constant.EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_INVALID);
+			Util.startActivity(ActivityDoMaintainV2.this, ActivityPauseReason.class, b, false);
 			break;
 		case R.id.btn_init_workorder:
 			b.putString("title", "放弃本单");
 			b.putString("init", "1");
-			b.putInt(
-					"type",
-					Constant.EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_CONTINUE);
-			Util.startActivity(ActivityDoMaintainV2.this,
-					ActivityPauseReason.class, b, false);
+			b.putInt("type", Constant.EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_CONTINUE);
+			Util.startActivity(ActivityDoMaintainV2.this, ActivityPauseReason.class, b, false);
 			break;
 		case R.id.tv_collect_map:
 			if (layout_map.getVisibility() == View.GONE) {
@@ -368,8 +329,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 				handler.post(new Runnable() {
 					@Override
 					public void run() {
-						scroll_maintain.getRefreshableView().fullScroll(
-								ScrollView.FOCUS_DOWN);
+						scroll_maintain.getRefreshableView().fullScroll(ScrollView.FOCUS_DOWN);
 					}
 				});
 			} else {
@@ -377,14 +337,11 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 			}
 			break;
 		case R.id.btn_invite_assist_people:
-			Util.startActivity(ActivityDoMaintainV2.this,
-					ActivityCompanyWorkerList.class, false);
+			Util.startActivity(ActivityDoMaintainV2.this, ActivityCompanyWorkerList.class, false);
 			break;
 		case R.id.btn_delete_assist_people:
-			Util.createDialog(this, null,
-					R.string.msg_dialog_add_order_type_title,
-					R.string.msg_confirm_control, null, true, false,
-					new DialogInterface.OnClickListener() {
+			Util.createDialog(this, null, R.string.msg_dialog_add_order_type_title, R.string.msg_confirm_control, null,
+					true, false, new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							deleteAssistWorker();
@@ -393,10 +350,8 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 			break;
 		case R.id.btn_confirm_assist:
-			Util.createDialog(this, null,
-					R.string.msg_dialog_add_order_type_title,
-					R.string.msg_confirm_control, null, true, false,
-					new DialogInterface.OnClickListener() {
+			Util.createDialog(this, null, R.string.msg_dialog_add_order_type_title, R.string.msg_confirm_control, null,
+					true, false, new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							UpdateAssistStatus(Constant.EnumAssistWorkerStatus.ASSIST_STATUS_CONFIRMED);
@@ -404,10 +359,8 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 					}).show();
 			break;
 		case R.id.btn_begin_assist:
-			Util.createDialog(this, null,
-					R.string.msg_dialog_add_order_type_title,
-					R.string.msg_confirm_control, null, true, false,
-					new DialogInterface.OnClickListener() {
+			Util.createDialog(this, null, R.string.msg_dialog_add_order_type_title, R.string.msg_confirm_control, null,
+					true, false, new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							UpdateAssistStatus(Constant.EnumAssistWorkerStatus.ASSIST_STATUS_BEGINED);
@@ -416,8 +369,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 			break;
 		case R.id.btn_close_assist:
 			b.putInt("scan_type", Constant.SCAN_TYPE4);
-			Intent intent = new Intent(ActivityDoMaintainV2.this,
-					CaptureActivity.class);
+			Intent intent = new Intent(ActivityDoMaintainV2.this, CaptureActivity.class);
 			intent.putExtras(b);
 			startActivityForResult(intent, 98);
 			break;
@@ -485,6 +437,12 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 			cb_result_type_ok.setChecked(false);
 			layout_remark.setVisibility(View.VISIBLE);
 			break;
+		case R.id.tv_workorder_upload_pics:
+			b.putString("title", "现场照片");
+			b.putString("url", SJECHttpHandler.BASE_URL + "/workorder_feedback/imageList.aspx?moduleID=&workorderID="
+					+ GlobalData.curWorkorder.InnerID);
+			Util.startActivity(this, ActivityKnowledgeDetail.class, b, false);
+			break;
 		}
 	}
 
@@ -501,8 +459,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 			}
 		}
 
-		new SJECHttpHandler(callBackDeleteAssistWorker, this)
-				.deleteWorkOrderAssistUsers(workorder_id, assist_user_id);
+		new SJECHttpHandler(callBackDeleteAssistWorker, this).deleteWorkOrderAssistUsers(workorder_id, assist_user_id);
 	}
 
 	@Override
@@ -513,68 +470,50 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 			if (requestCode == 99) {
 				try {
 					String data_result = data.getExtras().getString("data", "");
-					String[] arrDeviceInfo = SJECUtil
-							.GetDeviceInfoArrayFromQrCode(data_result);
+					String[] arrDeviceInfo = SJECUtil.GetDeviceInfoArrayFromQrCode(data_result);
 					String deviceNum = arrDeviceInfo[2].trim();
-					if (!GlobalData.curWorkorder.Device_Num.trim()
-							.toUpperCase()
+					if (!GlobalData.curWorkorder.Device_Num.trim().toUpperCase()
 							.equals(deviceNum.trim().toUpperCase())) {
 						btn_complete_workorder.setVisibility(View.VISIBLE);
-						Util.createToast(
-								ActivityDoMaintainV2.this,
-								getResources()
-										.getString(
-												R.string.str_show_manual_submit_workorder,
-												deviceNum,
-												GlobalData.curDevice.Device_Num),
+						Util.createToast(ActivityDoMaintainV2.this,
+								getResources().getString(R.string.str_show_manual_submit_workorder, deviceNum,
+										GlobalData.curDevice.Device_Num),
 								3000).show();
 					} else {
-						Util.createDialog(this, null,
-								R.string.msg_dialog_add_order_type_title,
-								R.string.msg_complete_workorder_confirm, null,
-								true, false,
+						Util.createDialog(this, null, R.string.msg_dialog_add_order_type_title,
+								R.string.msg_complete_workorder_confirm, null, true, false,
 								new DialogInterface.OnClickListener() {
 									@Override
-									public void onClick(DialogInterface dialog,
-											int which) {
+									public void onClick(DialogInterface dialog, int which) {
 										// 更新状态为完成
-										updateWorkorderStatus(Constant.EnumWorkorderStatus.STATUS_WORKORDER_3
-												+ "");
+										updateWorkorderStatus(Constant.EnumWorkorderStatus.STATUS_WORKORDER_3 + "");
 									}
 								}).show();
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
-					Util.createToast(ActivityDoMaintainV2.this,
-							R.string.error_qr_scan, 3000).show();
+					Util.createToast(ActivityDoMaintainV2.this, R.string.error_qr_scan, 3000).show();
 				}
 			} else if (requestCode == 98) {
 
 				String data_result = data.getExtras().getString("data", "");
 				LogUtil.d("result:%s", data_result);
 				try {
-					String[] arrDeviceInfo = SJECUtil
-							.GetDeviceInfoArrayFromQrCode(data_result);
+					String[] arrDeviceInfo = SJECUtil.GetDeviceInfoArrayFromQrCode(data_result);
 					String deviceNum = arrDeviceInfo[2].trim();
-					if (!GlobalData.curWorkorder.Device_Num.trim()
-							.toUpperCase()
+					if (!GlobalData.curWorkorder.Device_Num.trim().toUpperCase()
 							.equals(deviceNum.trim().toUpperCase())) {
 
-						Util.createToast(
-								ActivityDoMaintainV2.this,
-								getResources()
-										.getString(
-												R.string.str_show_manual_submit_workorder,
-												deviceNum,
-												GlobalData.curWorkorder.Device_Num),
+						Util.createToast(ActivityDoMaintainV2.this,
+								getResources().getString(R.string.str_show_manual_submit_workorder, deviceNum,
+										GlobalData.curWorkorder.Device_Num),
 								3000).show();
 					} else {
 						UpdateAssistStatus(Constant.EnumAssistWorkerStatus.ASSIST_STATUS_CLOSED);
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
-					Util.createToast(ActivityDoMaintainV2.this,
-							R.string.error_qr_scan, 3000).show();
+					Util.createToast(ActivityDoMaintainV2.this, R.string.error_qr_scan, 3000).show();
 				}
 			}
 		}
@@ -587,8 +526,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 	@Override
 	public void init(Bundle savedInstanceState) {
-		IntentFilter filter = new IntentFilter(
-				Constant.ACTION_REFRESH_WORKORDER);
+		IntentFilter filter = new IntentFilter(Constant.ACTION_REFRESH_WORKORDER);
 		filter.addAction(Constant.ACTION_REFRESH_ASSIST_LIST);
 		registerReceiver(receiver, filter);
 		// mCurrentMode = LocationMode.NORMAL;
@@ -618,7 +556,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		tv_workorder_provisionmaintaintime = (TextView) findViewById(R.id.tv_workorder_provisionmaintaintime);
 		// btn_begin_maintain = (Button)findViewById(R.id.btn_begin_maintain);
 		tv_workorder_maintain_type = (TextView) findViewById(R.id.tv_workorder_maintain_type);
-
+		tv_workorder_upload_pics = (TextView) findViewById(R.id.tv_workorder_upload_pics);
 		tv_workorder_event_source = (TextView) findViewById(R.id.tv_workorder_event_source);
 		tv_workorder_status = (TextView) findViewById(R.id.tv_workorder_status);
 		tv_base_info = (TextView) findViewById(R.id.tv_base_info);
@@ -656,22 +594,20 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 		scroll_maintain.setMode(Mode.PULL_FROM_START);
 
-		scroll_maintain
-				.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2() {
+		scroll_maintain.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2() {
 
-					@Override
-					public void onPullDownToRefresh(
-							PullToRefreshBase refreshView) {
-						// TODO Auto-generated method stub
-						queryDeviceAndWorkorderInfo();
-					}
+			@Override
+			public void onPullDownToRefresh(PullToRefreshBase refreshView) {
+				// TODO Auto-generated method stub
+				queryDeviceAndWorkorderInfo();
+			}
 
-					@Override
-					public void onPullUpToRefresh(PullToRefreshBase refreshView) {
-						// TODO Auto-generated method stub
+			@Override
+			public void onPullUpToRefresh(PullToRefreshBase refreshView) {
+				// TODO Auto-generated method stub
 
-					}
-				});
+			}
+		});
 		tv_assist_people = (TextView) findViewById(R.id.tv_assist_people);
 		// 协助维保
 		layout_assist_people = (LinearLayout) findViewById(R.id.layout_assist_people);
@@ -743,8 +679,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 	private void setUpMap() {
 		// 自定义系统定位小蓝点
 		MyLocationStyle myLocationStyle = new MyLocationStyle();
-		myLocationStyle.myLocationIcon(BitmapDescriptorFactory
-				.fromResource(R.drawable.location_marker));// 设置小蓝点的图标
+		myLocationStyle.myLocationIcon(BitmapDescriptorFactory.fromResource(R.drawable.location_marker));// 设置小蓝点的图标
 		// myLocationStyle.strokeColor(Color.BLACK);// 设置圆形的边框颜色
 		// myLocationStyle.radiusFillColor(Color.argb(100, 0, 0, 180));//
 		// 设置圆形的填充颜色
@@ -765,8 +700,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 	@Override
 	public void bindData() {
 		ConfirmDialogControl(R.string.dialog_title_confirm_workorder_before,
-				R.string.dialog_msg_confirm_workorder_before,
-				R.string.dialog_button_confirm_workorder_before, null);
+				R.string.dialog_msg_confirm_workorder_before, R.string.dialog_button_confirm_workorder_before, null);
 		tv_maintain.performClick();
 
 		Bundle b = getIntent().getExtras();
@@ -787,9 +721,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		if (GlobalData.curWorkorder.ProvisionMaintainTime != null
 				&& !GlobalData.curWorkorder.ProvisionMaintainTime.isEmpty()) {
 			tv_workorder_provisionmaintaintime.setText(DateUtil
-					.TimeParseStringToFormatString(
-							GlobalData.curWorkorder.ProvisionMaintainTime,
-							"yyyy-MM-dd"));
+					.TimeParseStringToFormatString(GlobalData.curWorkorder.ProvisionMaintainTime, "yyyy-MM-dd"));
 		}
 		if (GlobalData.curWorkorder.Status == Constant.EnumWorkorderStatus.STATUS_WORKORDER_3) {
 			cb_result_type_ok.setEnabled(false);
@@ -799,12 +731,10 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		}
 
 		if (GlobalData.curWorkorder.Status == Constant.EnumWorkorderStatus.STATUS_WORKORDER_INVALID) {
-			tv_workorder_status.setText(getResources().getStringArray(
-					R.array.arr_status_workorder)[0]);
+			tv_workorder_status.setText(getResources().getStringArray(R.array.arr_status_workorder)[0]);
 		} else {
-			tv_workorder_status
-					.setText(getResources().getStringArray(
-							R.array.arr_status_workorder)[GlobalData.curWorkorder.Status]);
+			tv_workorder_status.setText(
+					getResources().getStringArray(R.array.arr_status_workorder)[GlobalData.curWorkorder.Status]);
 		}
 
 		try {
@@ -814,55 +744,48 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		}
 
 		if (GlobalData.curWorkorder.OrderPause == null) {
-			tv_workorder_status_pause
-					.setText(EnumWorkorderPauseStatus
-							.GetName(EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_CONTINUE));
+			tv_workorder_status_pause.setText(
+					EnumWorkorderPauseStatus.GetName(EnumWorkorderPauseStatus.PAUSE_STATUS_WORKORDER_CONTINUE));
 		} else {
-			tv_workorder_status_pause.setText(EnumWorkorderPauseStatus
-					.GetName(GlobalData.curWorkorder.OrderPause));
+			tv_workorder_status_pause.setText(EnumWorkorderPauseStatus.GetName(GlobalData.curWorkorder.OrderPause));
 		}
 
 		try {
-			int daysLastSeason = DateUtil.daysBetween(new SimpleDateFormat(
-					"yyyy-MM-dd")
-					.parse(GlobalData.curWorkorder.LastSeasonMaintain
-							.replaceAll("/", "-")), new Date());
-			tv_season_maitain.setText(getResources().getString(
-					R.string.str_maintain_last_maintain_season,
-					GlobalData.curWorkorder.LastSeasonMaintain,
-					daysLastSeason + ""));
+			int daysLastSeason = DateUtil.daysBetween(new SimpleDateFormat("yyyy-MM-dd")
+					.parse(GlobalData.curWorkorder.LastSeasonMaintain.replaceAll("/", "-")), new Date());
+			tv_season_maitain.setText(getResources().getString(R.string.str_maintain_last_maintain_season,
+					GlobalData.curWorkorder.LastSeasonMaintain, daysLastSeason + ""));
 		} catch (Exception e) {
-			tv_season_maitain.setText(getResources().getString(
-					R.string.str_maintain_last_maintain_season, "-", "-"));
+			tv_season_maitain.setText(getResources().getString(R.string.str_maintain_last_maintain_season, "-", "-"));
 		}
 		try {
-			int daysLastHalfYear = DateUtil.daysBetween(new SimpleDateFormat(
-					"yyyy-MM-dd")
-					.parse(GlobalData.curWorkorder.LastHalfYearMaintain
-							.replaceAll("/", "-")), new Date());
-			tv_half_year_maitain.setText(getResources().getString(
-					R.string.str_maintain_last_maintain_half_year,
-					GlobalData.curWorkorder.LastHalfYearMaintain,
-					daysLastHalfYear + ""));
+			int daysLastHalfYear = DateUtil.daysBetween(new SimpleDateFormat("yyyy-MM-dd")
+					.parse(GlobalData.curWorkorder.LastHalfYearMaintain.replaceAll("/", "-")), new Date());
+			tv_half_year_maitain.setText(getResources().getString(R.string.str_maintain_last_maintain_half_year,
+					GlobalData.curWorkorder.LastHalfYearMaintain, daysLastHalfYear + ""));
 		} catch (Exception e) {
-			tv_half_year_maitain.setText(getResources().getString(
-					R.string.str_maintain_last_maintain_half_year, "-", "-"));
+			tv_half_year_maitain
+					.setText(getResources().getString(R.string.str_maintain_last_maintain_half_year, "-", "-"));
 		}
 		tv_workorder_maintain_type.setText(Constant.EnumMaintainType
-				.GetName(ConvertUtil.ParsetStringToInt32(
-						GlobalData.curWorkorder.MaintainType, -1)));
+				.GetName(ConvertUtil.ParsetStringToInt32(GlobalData.curWorkorder.MaintainType, -1)));
+		if (GlobalData.curWorkorder.is_pic_exists != null) {
+			tv_workorder_upload_pics.setText(GlobalData.curWorkorder.is_pic_exists.isEmpty() ? "-"
+					: (Html.fromHtml("<u><font color='" + Constant.COLOR_LINK_BLUE + "'>查看现场照片</font></u>")));
+		}
+		if (GlobalData.curWorkorder.is_pic_exists != null && !GlobalData.curWorkorder.is_pic_exists.isEmpty()) {
+			tv_workorder_upload_pics.setOnClickListener(this);
+		}
 		if (GlobalData.curWorkorder.ResultDesc != null) {
 			et_workorder_remark.setText(GlobalData.curWorkorder.ResultDesc);
 		}
 
 		if (GlobalData.curWorkorder.ResultType != null) {
-			if (GlobalData.curWorkorder.ResultType.equals(cb_result_type_ok
-					.getTag().toString())) {
+			if (GlobalData.curWorkorder.ResultType.equals(cb_result_type_ok.getTag().toString())) {
 				cb_result_type_ok.setChecked(true);
 				cb_result_type_other.setChecked(false);
 				layout_remark.setVisibility(View.GONE);
-			} else if (GlobalData.curWorkorder.ResultType
-					.equals(cb_result_type_other.getTag().toString())) {
+			} else if (GlobalData.curWorkorder.ResultType.equals(cb_result_type_other.getTag().toString())) {
 				cb_result_type_ok.setChecked(false);
 				cb_result_type_other.setChecked(true);
 				layout_remark.setVisibility(View.VISIBLE);
@@ -889,43 +812,34 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		// tv_wbxx.setText();
 		tv_cpgg.setText(GlobalData.curDevice.Specification);
 		tv_sydw.setText(GlobalData.curDevice.User_Company);
-		tv_sbdz.setText(GlobalData.curDevice.Village_Address + ""
-				+ GlobalData.curDevice.Lift_Address);
-		tv_latlng.setText(getString(R.string.str_device_location_value,
-				GlobalData.curDevice.Latitude, GlobalData.curDevice.Longitude));
+		tv_sbdz.setText(GlobalData.curDevice.Village_Address + "" + GlobalData.curDevice.Lift_Address);
+		tv_latlng.setText(getString(R.string.str_device_location_value, GlobalData.curDevice.Latitude,
+				GlobalData.curDevice.Longitude));
 
 		BindDeviceOldLocation();
 	}
 
 	private void BindDeviceOldLocation() {
 
-		if (GlobalData.curDevice.Latitude != null
-				&& !GlobalData.curDevice.Latitude.isEmpty()
+		if (GlobalData.curDevice.Latitude != null && !GlobalData.curDevice.Latitude.isEmpty()
 				&& !GlobalData.curDevice.Longitude.isEmpty()) {
-			tv_latlng.setText(getString(R.string.str_device_location_value,
-					GlobalData.curDevice.Latitude,
+			tv_latlng.setText(getString(R.string.str_device_location_value, GlobalData.curDevice.Latitude,
 					GlobalData.curDevice.Longitude));
-			LayoutInflater mInflater = LayoutInflater
-					.from(ActivityDoMaintainV2.this);
-			deviceLatLng = new LatLng(
-					Double.parseDouble(GlobalData.curDevice.Latitude),
+			LayoutInflater mInflater = LayoutInflater.from(ActivityDoMaintainV2.this);
+			deviceLatLng = new LatLng(Double.parseDouble(GlobalData.curDevice.Latitude),
 					Double.parseDouble(GlobalData.curDevice.Longitude));
 
 			View convertView = mInflater.inflate(R.layout.item_marker, null);
 			TextView tv = (TextView) convertView.findViewById(R.id.tv_marker);
 
-			tv.setText(GlobalData.curDevice.Village_Name
-					+ GlobalData.curDevice.Village_Group_Num + "组"
-					+ GlobalData.curDevice.Village_Stage_Num + "台"
-					+ GlobalData.curDevice.Device_Num);
+			tv.setText(GlobalData.curDevice.Village_Name + GlobalData.curDevice.Village_Group_Num + "组"
+					+ GlobalData.curDevice.Village_Stage_Num + "台" + GlobalData.curDevice.Device_Num);
 			// mInfoWindow = new InfoWindow(
 			// BitmapDescriptorFactory.fromView(convertView),
 			// deviceLatLng, 0, null);
 			// mBaiduMap.showInfoWindow(mInfoWindow);
-			Marker marker = aMap.addMarker(new MarkerOptions()
-					.position(deviceLatLng)
-					.icon(BitmapDescriptorFactory.fromView(convertView))
-					.draggable(true));
+			Marker marker = aMap.addMarker(new MarkerOptions().position(deviceLatLng)
+					.icon(BitmapDescriptorFactory.fromView(convertView)).draggable(true));
 			marker.showInfoWindow();// 设置默认显示一个infowinfow
 		}
 	}
@@ -966,27 +880,21 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 	private void queryDeviceAndWorkorderInfo() {
 
-		new SJECHttpHandler(callBackQueryDevice, this)
-				.getDeviceByWorkorderID(workorder_id);
-		new SJECHttpHandler(callBackWorkorder, this)
-				.getWorkorderByID(workorder_id);
-		new SJECHttpHandler(callBackPushLog, this)
-				.getWorkorderPushLogByID(workorder_id);
+		new SJECHttpHandler(callBackQueryDevice, this).getDeviceByWorkorderID(workorder_id);
+		new SJECHttpHandler(callBackWorkorder, this).getWorkorderByID(workorder_id);
+		new SJECHttpHandler(callBackPushLog, this).getWorkorderPushLogByID(workorder_id);
 
 	}
 
 	private void updateWorkorderStatus(String status) {
 		callBackUpdateStatus.setExtra(status);
-		new SJECHttpHandler(callBackUpdateStatus, this)
-				.updateWorkorderStatusForMaintain(workorder_id, status,
-						latlng == null ? "0" : latlng.latitude + "",
-						latlng == null ? "0" : latlng.longitude + "",
-						getText(et_workorder_remark), resultType,false);
+		new SJECHttpHandler(callBackUpdateStatus, this).updateWorkorderStatusForMaintain(workorder_id, status,
+				latlng == null ? "0" : latlng.latitude + "", latlng == null ? "0" : latlng.longitude + "",
+				getText(et_workorder_remark), resultType, false);
 	}
 
 	private void updateWorkorderReceiver() {
-		new SJECHttpHandler(callBackUpdateRecive, this)
-				.updateWorkorderReceiver(workorder_id, maintainType);
+		new SJECHttpHandler(callBackUpdateRecive, this).updateWorkorderReceiver(workorder_id, maintainType);
 	}
 
 	private AsyncHttpCallBack callBackUpdateStatus = new AsyncHttpCallBack() {
@@ -994,67 +902,53 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		public void onSuccess(String response) {
 			LogUtil.d("%s", response);
 			// 更新状态成功
-			EntityUnSubmitWorkorderDao dao = MyApplication.daoSession
-					.getEntityUnSubmitWorkorderDao();
+			EntityUnSubmitWorkorderDao dao = MyApplication.daoSession.getEntityUnSubmitWorkorderDao();
 			dao.deleteByKey(workorder_id);
-			
+
 			JSONObject jobj;
 			try {
 				jobj = new JSONObject(response);
 				if (jobj.optString("result", "false").equals("true")) {
-					Util.createToast(ActivityDoMaintainV2.this,
-							R.string.msg_control_success, Toast.LENGTH_SHORT)
+					Util.createToast(ActivityDoMaintainV2.this, R.string.msg_control_success, Toast.LENGTH_SHORT)
 							.show();
-					getApplicationContext().sendBroadcast(
-							new Intent(Constant.ACTION_REFRESH_WORKORDER_LIST));
+					getApplicationContext().sendBroadcast(new Intent(Constant.ACTION_REFRESH_WORKORDER_LIST));
 					Gson gson = new Gson();
-					GlobalData.curWorkorder = gson.fromJson(
-							jobj.optString("data", ""), EntityWorkorder.class);
+					GlobalData.curWorkorder = gson.fromJson(jobj.optString("data", ""), EntityWorkorder.class);
 					BindWorkorderData();
 					queryAssistWorker();
 				} else {
 					if ((jobj.optString("desc") != null)) {
-						Util.createToast(ActivityDoMaintainV2.this,
-								jobj.optString("desc"), Toast.LENGTH_SHORT)
-								.show();
+						Util.createToast(ActivityDoMaintainV2.this, jobj.optString("desc"), Toast.LENGTH_SHORT).show();
 					} else {
-						Util.createToast(ActivityDoMaintainV2.this,
-								getString(R.string.msg_control_failed, ""),
+						Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 								Toast.LENGTH_SHORT).show();
 					}
 				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				Util.createToast(ActivityDoMaintainV2.this,
-						getString(R.string.msg_control_failed, ""),
+				Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 						Toast.LENGTH_SHORT).show();
 			}
 		};
 
 		public void onFailure(String message) {
 			// 在这里记录到本地数据库中，后台服务监听到网络变化时，会自动提交表中数据
-			if (getExtra().toString().equals(
-					Constant.EnumWorkorderStatus.STATUS_WORKORDER_3 + "")) {
-				EntityUnSubmitWorkorderDao dao = MyApplication.daoSession
-						.getEntityUnSubmitWorkorderDao();
+			if (getExtra().toString().equals(Constant.EnumWorkorderStatus.STATUS_WORKORDER_3 + "")) {
+				EntityUnSubmitWorkorderDao dao = MyApplication.daoSession.getEntityUnSubmitWorkorderDao();
 				EntityUnSubmitWorkorder unsubmit = new EntityUnSubmitWorkorder();
 				unsubmit.InnerID = workorder_id;
 				unsubmit.Type = Constant.EnumWorkorderType.TYPE_WORKORDER_MAINTAIN;
 				unsubmit.Status = getExtra().toString();
 				unsubmit.Latitude = latlng == null ? "0" : latlng.latitude + "";
-				unsubmit.Longitude = latlng == null ? "0" : latlng.longitude
-						+ "";
+				unsubmit.Longitude = latlng == null ? "0" : latlng.longitude + "";
 				unsubmit.Remark = getText(et_workorder_remark);
 				unsubmit.ResultType = resultType;
 				unsubmit.UserID = GlobalData.curWorkorder.ChargeUserID;
 				dao.insertOrReplace(unsubmit);
-				Util.createToast(ActivityDoMaintainV2.this,
-						"提交失败,已保存到本地,网络状态改善后,将自动提交工单", Toast.LENGTH_SHORT)
-						.show();
+				Util.createToast(ActivityDoMaintainV2.this, "提交失败,已保存到本地,网络状态改善后,将自动提交工单", Toast.LENGTH_SHORT).show();
 			} else {
-				Util.createToast(ActivityDoMaintainV2.this,
-						getString(R.string.msg_control_failed, ""),
+				Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 						Toast.LENGTH_SHORT).show();
 			}
 		};
@@ -1070,68 +964,53 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 			try {
 				jobj = new JSONObject(response);
 				if (jobj.optString("result", "false").equals("true")) {
-					Util.createToast(ActivityDoMaintainV2.this,
-							R.string.msg_control_success, Toast.LENGTH_SHORT)
+					Util.createToast(ActivityDoMaintainV2.this, R.string.msg_control_success, Toast.LENGTH_SHORT)
 							.show();
-					getApplicationContext().sendBroadcast(
-							new Intent(Constant.ACTION_REFRESH_WORKORDER_LIST));
+					getApplicationContext().sendBroadcast(new Intent(Constant.ACTION_REFRESH_WORKORDER_LIST));
 					Gson gson = new Gson();
-					GlobalData.curWorkorder = gson.fromJson(
-							jobj.optString("data", ""), EntityWorkorder.class);
+					GlobalData.curWorkorder = gson.fromJson(jobj.optString("data", ""), EntityWorkorder.class);
 					BindWorkorderData();
 					queryAssistWorker();
 				} else {
 					if ((jobj.optString("desc") != null)) {
-						Util.createToast(ActivityDoMaintainV2.this,
-								jobj.optString("desc"), Toast.LENGTH_SHORT)
-								.show();
+						Util.createToast(ActivityDoMaintainV2.this, jobj.optString("desc"), Toast.LENGTH_SHORT).show();
 					} else {
-						Util.createToast(ActivityDoMaintainV2.this,
-								getString(R.string.msg_control_failed, ""),
+						Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 								Toast.LENGTH_SHORT).show();
 					}
 				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				Util.createToast(ActivityDoMaintainV2.this,
-						getString(R.string.msg_control_failed, ""),
+				Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 						Toast.LENGTH_SHORT).show();
 			}
 		};
 
 		public void onFailure(String message) {
-			Util.createToast(ActivityDoMaintainV2.this,
-					getString(R.string.msg_control_failed, ""),
-					Toast.LENGTH_SHORT).show();
+			Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""), Toast.LENGTH_SHORT)
+					.show();
 			// 在这里记录到本地数据库中，后台服务监听到网络变化时，会自动提交表中数据
 		};
 	};
 
 	private void BindPushLog() {
 		layout_push_log.removeAllViews();
-		LayoutInflater mInflater = LayoutInflater
-				.from(ActivityDoMaintainV2.this);
+		LayoutInflater mInflater = LayoutInflater.from(ActivityDoMaintainV2.this);
 
 		for (int i = 0; i < listPushLog.size(); i++) {
 			View convertView = mInflater.inflate(R.layout.item_push_log, null);
-			TextView tv_push_phone = (TextView) convertView
-					.findViewById(R.id.tv_push_phone);
-			TextView tv_push_name = (TextView) convertView
-					.findViewById(R.id.tv_push_name);
-			TextView tv_push_result = (TextView) convertView
-					.findViewById(R.id.tv_push_result);
-			TextView tv_push_time = (TextView) convertView
-					.findViewById(R.id.tv_push_time);
+			TextView tv_push_phone = (TextView) convertView.findViewById(R.id.tv_push_phone);
+			TextView tv_push_name = (TextView) convertView.findViewById(R.id.tv_push_name);
+			TextView tv_push_result = (TextView) convertView.findViewById(R.id.tv_push_result);
+			TextView tv_push_time = (TextView) convertView.findViewById(R.id.tv_push_time);
 
-			tv_push_phone.setText(Html.fromHtml("<u>"
-					+ listPushLog.get(i).Telephone + "</u>"));
+			tv_push_phone.setText(Html.fromHtml("<u>" + listPushLog.get(i).Telephone + "</u>"));
 			tv_push_name.setText(listPushLog.get(i).UserName);
-			tv_push_result.setText(listPushLog.get(i).PushResult.trim().equals(
-					"1") ? "成功" : "失败");
+			tv_push_result.setText(listPushLog.get(i).PushResult.trim().equals("1") ? "成功" : "失败");
 
-			tv_push_time.setText(DateUtil.TimeParseStringToFormatString(
-					listPushLog.get(i).PushTime, "yyyy-MM-dd HH:mm"));
+			tv_push_time
+					.setText(DateUtil.TimeParseStringToFormatString(listPushLog.get(i).PushTime, "yyyy-MM-dd HH:mm"));
 
 			convertView.setTag(listPushLog.get(i));
 			convertView.setOnClickListener(new View.OnClickListener() {
@@ -1139,8 +1018,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					LogUtil.d(v.getTag().toString());
-					final EntityWorkorderPushLog pushLog = (EntityWorkorderPushLog) v
-							.getTag();
+					final EntityWorkorderPushLog pushLog = (EntityWorkorderPushLog) v.getTag();
 					ConfirmDialogCallUser(pushLog.UserName, pushLog.Telephone);
 				}
 			});
@@ -1162,26 +1040,22 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 					Gson gson = new Gson();
 					java.lang.reflect.Type myType = new TypeToken<ArrayList<EntityWorkorderPushLog>>() {
 					}.getType();
-					listPushLog = gson.fromJson(jobj.optString("data", ""),
-							myType);
+					listPushLog = gson.fromJson(jobj.optString("data", ""), myType);
 					BindPushLog();
 				} else {
-					Util.createToast(ActivityDoMaintainV2.this,
-							getString(R.string.msg_control_failed, ""),
+					Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 							Toast.LENGTH_SHORT).show();
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();
-				Util.createToast(ActivityDoMaintainV2.this,
-						getString(R.string.msg_control_failed, ""),
+				Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 						Toast.LENGTH_SHORT).show();
 			}
 		};
 
 		public void onFailure(String message) {
-			Util.createToast(ActivityDoMaintainV2.this,
-					getString(R.string.msg_control_failed, ""),
-					Toast.LENGTH_SHORT).show();
+			Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""), Toast.LENGTH_SHORT)
+					.show();
 		};
 	};
 
@@ -1199,38 +1073,31 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 				if (jobj.optString("result", "false").equals("true")) {
 					Gson gson = new Gson();
-					GlobalData.curWorkorder = gson.fromJson(
-							jobj.optJSONObject("data").optString("workorder",
-									""), EntityWorkorder.class);
+					GlobalData.curWorkorder = gson.fromJson(jobj.optJSONObject("data").optString("workorder", ""),
+							EntityWorkorder.class);
 					if (GlobalData.curWorkorder.Type == EnumWorkorderType.TYPE_WORKORDER_REPAIR) {
-						GlobalData.curRepair = gson.fromJson(jobj
-								.optJSONObject("data").optString("repair", ""),
+						GlobalData.curRepair = gson.fromJson(jobj.optJSONObject("data").optString("repair", ""),
 								EntityRepair.class);
 					} else {
-						GlobalData.curMaintain = gson.fromJson(jobj
-								.optJSONObject("data")
-								.optString("maintain", ""),
+						GlobalData.curMaintain = gson.fromJson(jobj.optJSONObject("data").optString("maintain", ""),
 								EntityMaintain.class);
 					}
 					BindWorkorderData();
 					queryAssistWorker();
 				} else {
-					Util.createToast(ActivityDoMaintainV2.this,
-							getString(R.string.msg_control_failed, ""),
+					Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 							Toast.LENGTH_SHORT).show();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-				Util.createToast(ActivityDoMaintainV2.this,
-						getString(R.string.msg_control_failed, ""),
+				Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 						Toast.LENGTH_SHORT).show();
 			}
 		};
 
 		public void onFailure(String message) {
-			Util.createToast(ActivityDoMaintainV2.this,
-					getString(R.string.msg_control_failed, ""),
-					Toast.LENGTH_SHORT).show();
+			Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""), Toast.LENGTH_SHORT)
+					.show();
 		};
 	};
 
@@ -1247,8 +1114,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 				if (jobj.optString("result", "false").equals("true")) {
 					Gson gson = new Gson();
-					GlobalData.curDevice = gson.fromJson(
-							jobj.optString("data", ""), EntityDevice.class);
+					GlobalData.curDevice = gson.fromJson(jobj.optString("data", ""), EntityDevice.class);
 					BindDeviceData();
 				} else {
 					// Util.createToast(ActivityCollectInfo.this,
@@ -1281,11 +1147,9 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 				// Log.e("location", amapLocation.getLongitude() + ","
 				// + amapLocation.getLatitude());
 
-				latlng = new LatLng(amapLocation.getLatitude(),
-						amapLocation.getLongitude());
+				latlng = new LatLng(amapLocation.getLatitude(), amapLocation.getLongitude());
 			} else {
-				String errText = "定位失败," + amapLocation.getErrorCode() + ": "
-						+ amapLocation.getErrorInfo();
+				String errText = "定位失败," + amapLocation.getErrorCode() + ": " + amapLocation.getErrorInfo();
 				Log.e("AmapErr", errText);
 			}
 		}
@@ -1331,14 +1195,12 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 	private void UpdateAssistStatus(int status) {
 		String lat = latlng == null ? "" : (latlng.latitude + "");
 		String lng = latlng == null ? "" : (latlng.longitude + "");
-		new SJECHttpHandler(callBackUpdateAssistWorkerStatus, this)
-				.updateAssistUserStatus(GlobalData.curUser.InnerID,
-						workorder_id, status, lat, lng);
+		new SJECHttpHandler(callBackUpdateAssistWorkerStatus, this).updateAssistUserStatus(GlobalData.curUser.InnerID,
+				workorder_id, status, lat, lng);
 	}
 
 	private void queryAssistWorker() {
-		new SJECHttpHandler(callBackAssistWorker, this)
-				.getCompanyAssistWorkerList(workorder_id);
+		new SJECHttpHandler(callBackAssistWorker, this).getCompanyAssistWorkerList(workorder_id);
 	}
 
 	/**
@@ -1349,28 +1211,20 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		meInList = false;
 		assistStatus = -1;
 		layout_assist_people.removeAllViews();
-		LayoutInflater mInflater = LayoutInflater
-				.from(ActivityDoMaintainV2.this);
+		LayoutInflater mInflater = LayoutInflater.from(ActivityDoMaintainV2.this);
 		String curUserID = GlobalData.curUser.InnerID;
 		btn_confirm_assist.setVisibility(View.GONE);
 		btn_begin_assist.setVisibility(View.GONE);
 		btn_close_assist.setVisibility(View.GONE);
 		for (int i = 0; i < GlobalData.listAsssitWorker.size(); i++) {
-			View convertView = mInflater.inflate(R.layout.item_assist_people,
-					null);
-			CheckBox cbx = (CheckBox) convertView
-					.findViewById(R.id.cb_delete_assist);
-			TextView tv_assist_name = (TextView) convertView
-					.findViewById(R.id.tv_assist_name);
-			TextView tv_assist_staffno = (TextView) convertView
-					.findViewById(R.id.tv_assist_staffno);
-			TextView tv_assist_mobile = (TextView) convertView
-					.findViewById(R.id.tv_assist_mobile);
-			TextView tv_assist_status = (TextView) convertView
-					.findViewById(R.id.tv_assist_status);
+			View convertView = mInflater.inflate(R.layout.item_assist_people, null);
+			CheckBox cbx = (CheckBox) convertView.findViewById(R.id.cb_delete_assist);
+			TextView tv_assist_name = (TextView) convertView.findViewById(R.id.tv_assist_name);
+			TextView tv_assist_staffno = (TextView) convertView.findViewById(R.id.tv_assist_staffno);
+			TextView tv_assist_mobile = (TextView) convertView.findViewById(R.id.tv_assist_mobile);
+			TextView tv_assist_status = (TextView) convertView.findViewById(R.id.tv_assist_status);
 
-			if (!GlobalData.curWorkorder.ChargeUserID
-					.equals(GlobalData.curUser.InnerID)) {
+			if (!GlobalData.curWorkorder.ChargeUserID.equals(GlobalData.curUser.InnerID)) {
 				cbx.setVisibility(View.INVISIBLE);
 			} else {
 				if (GlobalData.curWorkorder.Status != Constant.EnumWorkorderStatus.STATUS_WORKORDER_3) {
@@ -1381,24 +1235,21 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 			cbx.setTag(GlobalData.listAsssitWorker.get(i).UserID);
 			tv_assist_name.setText(GlobalData.listAsssitWorker.get(i).Name);
-			tv_assist_staffno
-					.setText(GlobalData.listAsssitWorker.get(i).StaffNo);
-			tv_assist_mobile.setText(Html.fromHtml("<u>"
-					+ GlobalData.listAsssitWorker.get(i).Telephone + "</u>"));
+			tv_assist_staffno.setText(GlobalData.listAsssitWorker.get(i).StaffNo);
+			tv_assist_mobile.setText(Html.fromHtml("<u>" + GlobalData.listAsssitWorker.get(i).Telephone + "</u>"));
 
-			tv_assist_status.setText(Constant.EnumAssistWorkerStatus
-					.GetName(GlobalData.listAsssitWorker.get(i).AssistStatus));
+			tv_assist_status
+					.setText(Constant.EnumAssistWorkerStatus.GetName(GlobalData.listAsssitWorker.get(i).AssistStatus));
 
 			// 判断协助人员列表中有没有自己
 			if (curUserID.equals(GlobalData.listAsssitWorker.get(i).UserID)) {
 				meInList = true;
 				assistStatus = GlobalData.listAsssitWorker.get(i).AssistStatus;
-				tv_assist_name.setTextColor(getResources().getColor(
-						android.R.color.holo_red_light));
+				tv_assist_name.setTextColor(getResources().getColor(android.R.color.holo_red_light));
 			}
 
-			if (isAllAssistClosed
-					&& GlobalData.listAsssitWorker.get(i).AssistStatus != Constant.EnumAssistWorkerStatus.ASSIST_STATUS_CLOSED) {
+			if (isAllAssistClosed && GlobalData.listAsssitWorker
+					.get(i).AssistStatus != Constant.EnumAssistWorkerStatus.ASSIST_STATUS_CLOSED) {
 				isAllAssistClosed = false;
 			}
 			convertView.setTag(GlobalData.listAsssitWorker.get(i));
@@ -1407,37 +1258,28 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 				@Override
 				public void onClick(View v) {
 
-					final EntityAssistWorker worker = (EntityAssistWorker) v
-							.getTag();
-					Builder dialogBuilder = new AlertDialog.Builder(
-							ActivityDoMaintainV2.this);
+					final EntityAssistWorker worker = (EntityAssistWorker) v.getTag();
+					Builder dialogBuilder = new AlertDialog.Builder(ActivityDoMaintainV2.this);
 					dialogBuilder.setIcon(android.R.color.transparent);
 
 					dialogBuilder.setCancelable(true);
 					dialogBuilder.setNegativeButton("取消", null);
 
-					dialogBuilder
-							.setTitle(R.string.msg_dialog_add_order_type_title);
+					dialogBuilder.setTitle(R.string.msg_dialog_add_order_type_title);
 
-					dialogBuilder.setMessage(getResources().getString(
-							R.string.msg_call_phone_confirm, worker.Name,
-							worker.Telephone));
+					dialogBuilder.setMessage(
+							getResources().getString(R.string.msg_call_phone_confirm, worker.Name, worker.Telephone));
 
-					dialogBuilder.setPositiveButton("确定",
-							new DialogInterface.OnClickListener() {
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									// 更新状态为开始
-									LogUtil.d("%s", worker.Telephone.toString());
-									Intent intent = new Intent(
-											Intent.ACTION_CALL,
-											Uri.parse("tel:"
-													+ worker.Telephone
-															.toString()));
-									startActivity(intent);
-								}
-							});
+					dialogBuilder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// 更新状态为开始
+							LogUtil.d("%s", worker.Telephone.toString());
+							Intent intent = new Intent(Intent.ACTION_CALL,
+									Uri.parse("tel:" + worker.Telephone.toString()));
+							startActivity(intent);
+						}
+					});
 
 					AlertDialog dialog = dialogBuilder.create();
 					dialog.show();
@@ -1446,11 +1288,9 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 			layout_assist_people.addView(convertView);
 		}
 
-		if (GlobalData.curWorkorder.ChargeUserID != null
-				&& !GlobalData.curWorkorder.ChargeUserID.isEmpty()
-				&& GlobalData.curWorkorder.ChargeUserID
-						.equals(GlobalData.curUser.InnerID)) {
-			
+		if (GlobalData.curWorkorder.ChargeUserID != null && !GlobalData.curWorkorder.ChargeUserID.isEmpty()
+				&& GlobalData.curWorkorder.ChargeUserID.equals(GlobalData.curUser.InnerID)) {
+
 			if (isAllAssistClosed
 					&& (GlobalData.curWorkorder.Status == Constant.EnumWorkorderStatus.STATUS_WORKORDER_2)) {
 				// changeButtonBg(btn_complete_workorder, true);
@@ -1482,13 +1322,10 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		public void onSuccess(String response) {
 			LogUtil.d("%s", response);
 			if (response.contains("true")) {
-				Util.createToast(ActivityDoMaintainV2.this,
-						R.string.msg_control_success, Toast.LENGTH_SHORT)
-						.show();
+				Util.createToast(ActivityDoMaintainV2.this, R.string.msg_control_success, Toast.LENGTH_SHORT).show();
 				queryAssistWorker();
 			} else {
-				Util.createToast(ActivityDoMaintainV2.this,
-						getString(R.string.msg_control_failed, ""),
+				Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 						Toast.LENGTH_SHORT).show();
 			}
 
@@ -1496,9 +1333,8 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 		public void onFailure(String message) {
 			super.onFailure(message);
-			Util.createToast(ActivityDoMaintainV2.this,
-					getString(R.string.msg_control_failed, ""),
-					Toast.LENGTH_SHORT).show();
+			Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""), Toast.LENGTH_SHORT)
+					.show();
 		}
 	};
 
@@ -1515,26 +1351,22 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 					Gson gson = new Gson();
 					java.lang.reflect.Type myType = new TypeToken<ArrayList<EntityAssistWorker>>() {
 					}.getType();
-					GlobalData.listAsssitWorker = gson.fromJson(
-							jobj.optString("data", ""), myType);
+					GlobalData.listAsssitWorker = gson.fromJson(jobj.optString("data", ""), myType);
 					BindAssistWorker();
 				} else {
-					Util.createToast(ActivityDoMaintainV2.this,
-							getString(R.string.msg_control_failed, ""),
+					Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 							Toast.LENGTH_SHORT).show();
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();
-				Util.createToast(ActivityDoMaintainV2.this,
-						getString(R.string.msg_control_failed, ""),
+				Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 						Toast.LENGTH_SHORT).show();
 			}
 		};
 
 		public void onFailure(String message) {
-			Util.createToast(ActivityDoMaintainV2.this,
-					getString(R.string.msg_control_failed, ""),
-					Toast.LENGTH_SHORT).show();
+			Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""), Toast.LENGTH_SHORT)
+					.show();
 		};
 	};
 
@@ -1543,13 +1375,10 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 		public void onSuccess(String response) {
 			LogUtil.d("%s", response);
 			if (response.contains("true")) {
-				Util.createToast(ActivityDoMaintainV2.this,
-						R.string.msg_control_success, Toast.LENGTH_SHORT)
-						.show();
+				Util.createToast(ActivityDoMaintainV2.this, R.string.msg_control_success, Toast.LENGTH_SHORT).show();
 				queryAssistWorker();
 			} else {
-				Util.createToast(ActivityDoMaintainV2.this,
-						getString(R.string.msg_control_failed, ""),
+				Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""),
 						Toast.LENGTH_SHORT).show();
 			}
 
@@ -1557,9 +1386,8 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 		public void onFailure(String message) {
 			super.onFailure(message);
-			Util.createToast(ActivityDoMaintainV2.this,
-					getString(R.string.msg_control_failed, ""),
-					Toast.LENGTH_SHORT).show();
+			Util.createToast(ActivityDoMaintainV2.this, getString(R.string.msg_control_failed, ""), Toast.LENGTH_SHORT)
+					.show();
 		}
 	};
 
@@ -1696,15 +1524,12 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 	}
 
 	private boolean isMeReceiver() {
-		return GlobalData.curWorkorder.ChargeUserID != null
-				&& !GlobalData.curWorkorder.ChargeUserID.isEmpty()
-				&& GlobalData.curWorkorder.ChargeUserID
-						.equals(GlobalData.curUser.InnerID);
+		return GlobalData.curWorkorder.ChargeUserID != null && !GlobalData.curWorkorder.ChargeUserID.isEmpty()
+				&& GlobalData.curWorkorder.ChargeUserID.equals(GlobalData.curUser.InnerID);
 	}
 
 	private boolean isReceived() {
-		if (GlobalData.curWorkorder.ChargeUserID == null
-				|| GlobalData.curWorkorder.ChargeUserID.isEmpty()) {
+		if (GlobalData.curWorkorder.ChargeUserID == null || GlobalData.curWorkorder.ChargeUserID.isEmpty()) {
 			return false;
 		} else {
 			return true;
@@ -1713,23 +1538,21 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 
 	private void bindReceiveInfo() {
 		if (isReceived()) {
-			tv_workorder_receiver.setText(Html.fromHtml(getString(
-					R.string.str_maintain_receiver,
-					GlobalData.curWorkorder.ChargeUserName + "("
-							+ "<u><font color='" + Constant.COLOR_LINK_BLUE
-							+ "'>" + GlobalData.curWorkorder.ChargeUserPhone
-							+ "</font></u>" + ")")));
 			tv_workorder_receiver
-					.setOnClickListener(new View.OnClickListener() {
+					.setText(
+							Html.fromHtml(getString(R.string.str_maintain_receiver,
+									GlobalData.curWorkorder.ChargeUserName + "(" + "<u><font color='"
+											+ Constant.COLOR_LINK_BLUE + "'>" + GlobalData.curWorkorder.ChargeUserPhone
+											+ "</font></u>" + ")")));
+			tv_workorder_receiver.setOnClickListener(new View.OnClickListener() {
 
-						@Override
-						public void onClick(View v) {
-							// TODO Auto-generated method stub
-							ConfirmDialogCallUser(
-									GlobalData.curWorkorder.ChargeUserName,
-									GlobalData.curWorkorder.ChargeUserPhone);
-						}
-					});
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					ConfirmDialogCallUser(GlobalData.curWorkorder.ChargeUserName,
+							GlobalData.curWorkorder.ChargeUserPhone);
+				}
+			});
 			tv_workorder_receiver.setVisibility(View.VISIBLE);
 		} else {
 			btn_receive_workorder.setVisibility(View.VISIBLE);
@@ -1783,7 +1606,7 @@ public class ActivityDoMaintainV2 extends BaseActivity implements
 				changeButtonBg(btn_delete_assist_people, true);
 
 			}
-			
+
 			if (GlobalData.curWorkorder.Status == Constant.EnumWorkorderStatus.STATUS_WORKORDER_2) {
 				btn_invite_assist_people.setVisibility(View.VISIBLE);
 				changeButtonBg(btn_invite_assist_people, true);

@@ -36,54 +36,65 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
-                        android:text="device_num"
                         android:layout_toLeftOf="@+id/layout_icon"
+                        android:text="device_num"
                         android:textSize="@dimen/font_size_common" />
-                    
+
                     <TextView
                         android:id="@+id/tv_device_name_kunren"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
-                        android:text="device_num"
-                        android:visibility="gone"
-                        android:textColor="@android:color/holo_red_light"
                         android:layout_toLeftOf="@+id/layout_icon"
-                        android:textSize="@dimen/font_size_common" />
+                        android:text="device_num"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="@dimen/font_size_common"
+                        android:visibility="gone" />
 
-                    <LinearLayout android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/layout_icon"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:orientation="vertical"
-                        android:id="@+id/layout_icon">
-                    <ImageView
-                        android:id="@+id/iv_qx"
-                        android:layout_width="57dip"
-                        android:layout_height="22dip"
-                        android:scaleType="fitEnd"
-                        android:src="@drawable/iocn_qx"
-                        android:visibility="gone" />
-                    
-                    <ImageView
-                        android:id="@+id/iv_jc"
-                        android:layout_width="57dip"
-                        android:layout_height="22dip"
-                        android:background="@drawable/iocn_jc"
-                        android:visibility="gone" />
+                        android:orientation="horizontal" >
 
-                    <ImageView
-                        android:id="@+id/iv_wb"
-                        android:layout_width="57dip"
-                        android:layout_height="22dip"
-                        android:background="@drawable/iocn_wb"
-                        android:visibility="visible" />
+                        <ImageView
+                            android:id="@+id/iv_upload_pic"
+                            android:layout_width="wrap_content"
+                            android:layout_marginLeft="2.5dip"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dip"
+                            android:background="@drawable/photos"
+                            android:visibility="gone" />
+
+                        <ImageView
+                            android:id="@+id/iv_qx"
+                            android:layout_width="57dip"
+                            android:layout_height="22dip"
+                            android:scaleType="fitEnd"
+                            android:src="@drawable/iocn_qx"
+                            android:visibility="gone" />
+
+                        <ImageView
+                            android:id="@+id/iv_jc"
+                            android:layout_width="57dip"
+                            android:layout_height="22dip"
+                            android:background="@drawable/iocn_jc"
+                            android:visibility="gone" />
+
+                        <ImageView
+                            android:id="@+id/iv_wb"
+                            android:layout_width="57dip"
+                            android:layout_height="22dip"
+                            android:background="@drawable/iocn_wb"
+                            android:visibility="visible" />
                     </LinearLayout>
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content" >
 
                     <TextView
                         android:id="@+id/tv_device_num"
@@ -95,28 +106,24 @@
                         android:textColor="@android:color/darker_gray"
                         android:textSize="@dimen/font_size_common" />
 
-                    
                     <TextView
                         android:id="@+id/tv_provisionMaintainTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:text=""
-                        android:visibility="gone"
                         android:gravity="right"
+                        android:text=""
                         android:textColor="@android:color/darker_gray"
-                        android:textSize="@dimen/font_size_common" />
-                   
+                        android:textSize="@dimen/font_size_common"
+                        android:visibility="gone" />
                 </RelativeLayout>
-                
-                
-                
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                     <TextView
+                    <TextView
                         android:id="@+id/tv_workorder_add_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

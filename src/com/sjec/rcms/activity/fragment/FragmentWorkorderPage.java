@@ -38,6 +38,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -50,6 +51,7 @@ public class FragmentWorkorderPage extends BaseFragment implements
 	private Spinner sp_workorder_status;
 	// private Spinner sp_village;
 	public EditText et_search_keyword;
+	public CheckBox cbx_upload_pics;
 	private Button btn_search;
 
 	ArrayAdapter<String> adapterStatus = null;
@@ -305,6 +307,7 @@ public class FragmentWorkorderPage extends BaseFragment implements
 				.findViewById(R.id.sp_workorder_status);
 		et_search_keyword = (EditText) view
 				.findViewById(R.id.et_search_keyword);
+		cbx_upload_pics = (CheckBox)view.findViewById(R.id.cbx_upload_pics);
 		btn_search = (Button) view.findViewById(R.id.btn_search);
 
 		tv_manual_maintain = (TextView) view
@@ -394,6 +397,12 @@ public class FragmentWorkorderPage extends BaseFragment implements
 		fragmentWb.workorderStauts = workorderStauts;
 		fragmentXz.workorderStauts = workorderStauts;
 		fragmentJc.workorderStauts = workorderStauts;
+		
+		fragmentQx.filter_pic_exists = cbx_upload_pics.isChecked();
+		fragmentWb.filter_pic_exists = cbx_upload_pics.isChecked();
+		fragmentXz.filter_pic_exists = cbx_upload_pics.isChecked();
+		fragmentJc.filter_pic_exists = cbx_upload_pics.isChecked();
+		
 		if (!isInit) {
 			fragmentQx.refreshWorkorder();
 		}

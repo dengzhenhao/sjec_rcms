@@ -50,6 +50,7 @@ public class FragmentWorkorderListV2 extends BaseFragment implements
 	public String workorderSource = "1";
 	public String workorderType = "1";
 	public String workorderStauts = "1";
+	public boolean filter_pic_exists = false;
 	public String keyword = "";
 	private AdapterWorkorderList adapterWorkorderList;
 	public RelativeLayout layout_source;

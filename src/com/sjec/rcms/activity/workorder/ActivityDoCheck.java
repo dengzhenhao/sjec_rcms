@@ -54,6 +54,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.sjec.rcms.R;
 import com.sjec.rcms.activity.BaseActivity;
+import com.sjec.rcms.activity.knowledge.ActivityKnowledgeDetail;
 import com.sjec.rcms.activity.qr.CaptureActivity;
 import com.sjec.rcms.baidu.MyApplication;
 import com.sjec.rcms.dao.EntityAssistWorker;
@@ -110,7 +111,7 @@ public class ActivityDoCheck extends BaseActivity implements LocationSource,
 			tv_workorder_status, tv_workorder_starttime, tv_workorder_begin,
 			tv_workorder_complete, tv_workorder_result, tv_workorder_receiver,
 			tv_workorder_desc, tv_workorder_device_num,
-			tv_workorder_event_source, tv_workorder_endtime;
+			tv_workorder_event_source, tv_workorder_endtime,tv_workorder_upload_pics;
 
 	private EditText et_workorder_remark;
 
@@ -422,6 +423,12 @@ public class ActivityDoCheck extends BaseActivity implements LocationSource,
 			cb_result_type_ok.setChecked(false);
 			layout_remark.setVisibility(View.VISIBLE);
 			break;
+		case R.id.tv_workorder_upload_pics:
+			b.putString("title", "现场照片");
+			b.putString("url", SJECHttpHandler.BASE_URL + "/workorder_feedback/imageList.aspx?moduleID=&workorderID="
+					+ GlobalData.curWorkorder.InnerID);
+			Util.startActivity(this, ActivityKnowledgeDetail.class, b, false);
+			break;
 		}
 	}
 
@@ -557,6 +564,7 @@ public class ActivityDoCheck extends BaseActivity implements LocationSource,
 		tv_sbdz = (TextView) findViewById(R.id.tv_sbdz);
 		tv_workorder_starttime = (TextView) findViewById(R.id.tv_workorder_starttime);
 		tv_workorder_endtime = (TextView) findViewById(R.id.tv_workorder_endtime);
+		tv_workorder_upload_pics = (TextView)findViewById(R.id.tv_workorder_upload_pics);
 		// btn_begin_maintain = (Button)findViewById(R.id.btn_begin_maintain);
 
 		tv_workorder_event_source = (TextView) findViewById(R.id.tv_workorder_event_source);
@@ -695,7 +703,13 @@ public class ActivityDoCheck extends BaseActivity implements LocationSource,
 		// et_workorder_remark.setText(GlobalData.curRepair.RepairDesc);
 		tv_workorder_event_source.setText(GlobalData.curWorkorder.EventSource);
 		tv_workorder_device_num.setText(GlobalData.curWorkorder.Device_Num);
-
+		if (GlobalData.curWorkorder.is_pic_exists != null) {
+			tv_workorder_upload_pics.setText(GlobalData.curWorkorder.is_pic_exists.isEmpty() ? "-"
+					: (Html.fromHtml("<u><font color='" + Constant.COLOR_LINK_BLUE + "'>查看现场照片</font></u>")));
+		}
+		if (GlobalData.curWorkorder.is_pic_exists != null && !GlobalData.curWorkorder.is_pic_exists.isEmpty()) {
+			tv_workorder_upload_pics.setOnClickListener(this);
+		}
 		if (GlobalData.curWorkorder.Status == Constant.EnumWorkorderStatus.STATUS_WORKORDER_3) {
 			cb_result_type_ok.setEnabled(false);
 		    cb_result_type_other.setEnabled(false);

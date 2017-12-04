@@ -36,11 +36,12 @@ public class EntityWorkorder {
     public String MaintainType;
     public String ResultDesc;
     public String ResultType;
+    public String is_pic_exists;
 
     public EntityWorkorder() {
     }
 
-    public EntityWorkorder(String InnerID, String Company_Num, String Device_Num, String EventSource, String ForeignID, String Remark, String SolutionInfo, Integer Status, Integer Type, String ControlType, String Add_Time, String Village_Name, String Village_Group_Num, String Village_Stage_Num, String ChargeUserID, String ChargeUserName, String ChargeUserPhone, String StartTime, String EndTime, Integer OrderPause, String ProvisionMaintainTime, String StartType, String CompleteDate, String IsNeedAbarbeitung, String Program_Name, String LastSeasonMaintain, String LastHalfYearMaintain, String MaintainType, String ResultDesc, String ResultType) {
+    public EntityWorkorder(String InnerID, String Company_Num, String Device_Num, String EventSource, String ForeignID, String Remark, String SolutionInfo, Integer Status, Integer Type, String ControlType, String Add_Time, String Village_Name, String Village_Group_Num, String Village_Stage_Num, String ChargeUserID, String ChargeUserName, String ChargeUserPhone, String StartTime, String EndTime, Integer OrderPause, String ProvisionMaintainTime, String StartType, String CompleteDate, String IsNeedAbarbeitung, String Program_Name, String LastSeasonMaintain, String LastHalfYearMaintain, String MaintainType, String ResultDesc, String ResultType, String is_pic_exists) {
         this.InnerID = InnerID;
         this.Company_Num = Company_Num;
         this.Device_Num = Device_Num;
@@ -71,6 +72,7 @@ public class EntityWorkorder {
         this.MaintainType = MaintainType;
         this.ResultDesc = ResultDesc;
         this.ResultType = ResultType;
+        this.is_pic_exists = is_pic_exists;
     }
 
     public String getInnerID() {
@@ -311,6 +313,14 @@ public class EntityWorkorder {
 
     public void setResultType(String ResultType) {
         this.ResultType = ResultType;
+    }
+
+    public String getIs_pic_exists() {
+        return is_pic_exists;
+    }
+
+    public void setIs_pic_exists(String is_pic_exists) {
+        this.is_pic_exists = is_pic_exists;
     }
 
 }
