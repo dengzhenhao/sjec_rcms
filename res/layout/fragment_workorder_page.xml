@@ -94,6 +94,8 @@
                         android:paddingLeft="10dip"
                         android:textAlignment="center"
                         android:visibility="visible" />
+                    
+                  
 
                     <ImageView
                         android:layout_width="15dip"

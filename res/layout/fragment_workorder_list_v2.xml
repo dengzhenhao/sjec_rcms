@@ -21,10 +21,19 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/frame_common"
                 android:gravity="center"
-                
                 android:paddingLeft="10dip"
                 android:textAlignment="center"
                 android:visibility="visible" />
+            
+              <Spinner
+                        android:id="@+id/sp_workorder_provisionmaintaintime_filter"
+                       android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/frame_common"
+                android:gravity="center"
+                android:paddingLeft="10dip"
+                android:textAlignment="center"
+                android:visibility="gone" />
 
             <ImageView
                 android:layout_width="10dip"

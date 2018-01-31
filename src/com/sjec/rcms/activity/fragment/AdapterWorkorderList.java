@@ -303,7 +303,7 @@ public class AdapterWorkorderList extends CListView {
 		super.asyncData();
 		new SJECHttpHandler(callback, mActivity).getUserWorkorder(page + "", mPerpage + "", "", fragment.workorderType,
 				fragment.workorderSource, fragment.workorderStauts, fragment.keyword,
-				fragment.filter_pic_exists ? "1" : "0");
+				fragment.filter_pic_exists ? "1" : "0",fragment.workorderProvisionMaintainTimeFilter);
 	}
 
 	AsyncHttpListCallBack<ArrayList<EntityWorkorder>> callback = new AsyncHttpListCallBack<ArrayList<EntityWorkorder>>(

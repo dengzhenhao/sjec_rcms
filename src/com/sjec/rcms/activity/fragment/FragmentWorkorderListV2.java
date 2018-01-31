@@ -41,15 +41,19 @@ public class FragmentWorkorderListV2 extends BaseFragment implements
 		View.OnClickListener {
 
 	private ActivityMain objActivityMain;
-	private Spinner sp_workorder_source;
+	private Spinner sp_workorder_source,sp_workorder_provisionmaintaintime_filter;
 
 	private PullToRefreshListView lv_workorder ;
 	ArrayAdapter<String> adapterSource = null;
+	ArrayAdapter<String> adapterProvisionMaintainTimeFilter = null;
 	List<String> listWorkorderSource = null;
 	public String[] arrWorkorderSourceValue = null;
+	List<String> listWorkorderProvisionMaintainFilter = null;
+	public String[] arrWorkorderProvisionMaintainFilterValue = null;
 	public String workorderSource = "1";
 	public String workorderType = "1";
 	public String workorderStauts = "1";
+	public String workorderProvisionMaintainTimeFilter="1";
 	public boolean filter_pic_exists = false;
 	public String keyword = "";
 	private AdapterWorkorderList adapterWorkorderList;
@@ -75,8 +79,15 @@ public class FragmentWorkorderListV2 extends BaseFragment implements
 		View view = inflater.inflate(R.layout.fragment_workorder_list_v2,
 				container, false);
 		init(view);
-		if (workorderType.equals("1")) {
+		if (workorderType.equals("1")  || workorderType.equals("2")) {
 			layout_source.setVisibility(View.VISIBLE);
+			if(workorderType.equals("1")){
+				sp_workorder_source.setVisibility(View.VISIBLE);
+				sp_workorder_provisionmaintaintime_filter.setVisibility(View.GONE);
+			}else if(workorderType.equals("2")){
+				sp_workorder_source.setVisibility(View.GONE);
+				sp_workorder_provisionmaintaintime_filter.setVisibility(View.VISIBLE);
+			}
 		}
 		return view;
 	}
@@ -85,9 +96,13 @@ public class FragmentWorkorderListV2 extends BaseFragment implements
 		// sp_village = (Spinner) view.findViewById(R.id.sp_village);
 		sp_workorder_source = (Spinner) view
 				.findViewById(R.id.sp_workorder_source);
+		sp_workorder_provisionmaintaintime_filter = (Spinner)view.findViewById(R.id.sp_workorder_provisionmaintaintime_filter);
+		
 		lv_workorder = (PullToRefreshListView) view
 				.findViewById(R.id.lv_workorder);
 		layout_source = (RelativeLayout) view.findViewById(R.id.layout_source);
+		
+		//抢修单的下拉框初始化
 		listWorkorderSource = new ArrayList<String>(
 				Arrays.asList(getResources().getStringArray(
 						R.array.arr_workorder_source)));
@@ -121,8 +136,46 @@ public class FragmentWorkorderListV2 extends BaseFragment implements
 				});
 		String lastPageIndex = SJECUtil.GetPrefQueryCondition(FragmentWorkorderListV2.this.getActivity(), 2);
 		sp_workorder_source.setSelection(ConvertUtil.ParsetStringToInt32(lastPageIndex, 0));
+		//抢修单的下拉框初始化
+		
+		//保养单的下拉框初始化
+		listWorkorderProvisionMaintainFilter = new ArrayList<String>(
+				Arrays.asList(getResources().getStringArray(
+						R.array.arr_workorder_source_maintain)));
+
+		arrWorkorderProvisionMaintainFilterValue = getResources().getStringArray(
+				R.array.arr_workorder_source_maintain_value);
+
+		adapterProvisionMaintainTimeFilter = new ArrayAdapter<String>(getActivity(),
+				android.R.layout.simple_spinner_item, listWorkorderProvisionMaintainFilter);
+
+		adapterProvisionMaintainTimeFilter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		sp_workorder_provisionmaintaintime_filter.setAdapter(adapterProvisionMaintainTimeFilter);
+		sp_workorder_provisionmaintaintime_filter
+				.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+					@Override
+					public void onItemSelected(AdapterView<?> arg0, View arg1,
+							int position, long arg3) {
+						arg0.setVisibility(View.VISIBLE);
+						LogUtil.d("onItemSelected_sp_workorder_provisionmaintaintime_filter:"+position);
+						SJECUtil.SetPrefQueryConditon(FragmentWorkorderListV2.this.getActivity(), 4, position);
+						workorderProvisionMaintainTimeFilter = arrWorkorderProvisionMaintainFilterValue[position];
+						refreshWorkorder();
+					}
+
+					@Override
+					public void onNothingSelected(AdapterView<?> arg0) {
+
+					}
+				});
+		lastPageIndex = SJECUtil.GetPrefQueryCondition(FragmentWorkorderListV2.this.getActivity(), 4);
+		sp_workorder_provisionmaintaintime_filter.setSelection(ConvertUtil.ParsetStringToInt32(lastPageIndex, 0));
+		//保养单的下拉框初始化
+		
 		adapterWorkorderList = new AdapterWorkorderList(lv_workorder,
 				getActivity(), FragmentWorkorderListV2.this);
+		
 	}
 
 	@Override

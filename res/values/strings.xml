@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">江南嘉捷远程监控</string>
-    <string name="str_versionName">版本:2.0.12</string>
+    <string name="str_versionName">版本:2.0.13</string>
     <string name="phonenum_400">4008282688</string>
     <!-- 设置 -->
     <string name="common_config_lbs">请打开定位设置定位模式为 "准确度高"</string>

@@ -43,8 +43,8 @@ public class SJECHttpHandler extends BaseHttpHandler {
 	 * 服务器地址
 	 */
 
-//	public static final String BASE_URL = "http://192.168.0.5:9797";
-	 public static final String BASE_URL = "http://58.240.164.146:9999";
+//	public static final String BASE_URL = "http://192.168.0.20:9797";
+	 public static final String BASE_URL = "http://58.240.164.146:9999"; 
 //	 public static final String BASE_URL = "http://58.240.164.146:9998";
 	// public static final String BASE_URL ="http://sjecmobile.websharp.com.cn";
 
@@ -490,7 +490,7 @@ public class SJECHttpHandler extends BaseHttpHandler {
 	 */
 	public void getUserWorkorder(String page, String size, String village_id,
 			String workorderType, String workorderSource,
-			String workorderStatus, String keyword,String filter_pic_exists) {
+			String workorderStatus, String keyword,String filter_pic_exists,String provision_maintain_time_filter) {
 		RequestParams params = new RequestParams();
 		params.add("page", page);
 		params.add("pageSize", size);
@@ -500,6 +500,7 @@ public class SJECHttpHandler extends BaseHttpHandler {
 		params.add("workorder_source", workorderSource);
 		params.add("workorder_status", workorderStatus);
 		params.add("filter_pic_exists", filter_pic_exists);
+		params.add("filter_3days", provision_maintain_time_filter);
 		try {
 			params.add("keyword", URLEncoder.encode(keyword));
 		} catch (Exception e) {

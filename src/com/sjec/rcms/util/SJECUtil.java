@@ -120,6 +120,8 @@ public class SJECUtil {
 			key = "query_condition_source";
 		}else if(type==3){
 			key = "query_condition_order_index";
+		}else if(type==4){
+			key = "query_condition_provisionmaintaintime_filter";
 		}
 		PrefUtil.setPref(context, key, value);
 	}
@@ -140,6 +142,8 @@ public class SJECUtil {
 			key = "query_condition_source";
 		}else if(type==3){
 			key = "query_condition_order_index";
+		}else if(type==4){
+			key = "query_condition_provisionmaintaintime_filter";
 		}
 		result = PrefUtil.getPref(context, key, "0");
 		return result;

@@ -28,11 +28,22 @@
         <item>手工单</item>
         <item>值班模式(本公司所有工单)</item>
     </string-array>
+   
     <string-array name="arr_workorder_source_value">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    
+      <string-array name="arr_workorder_source_maintain">
+        <item>只看3天内的保养单</item>
+        <item>所有保养单</item>
+    </string-array>
+    
+      <string-array name="arr_workorder_source_maintain_value">
+        <item>1</item>
+        <item>0</item>
     </string-array>
 
     <!-- 维保时，工单来源不需要选择 -->
